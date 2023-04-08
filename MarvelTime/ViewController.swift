@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray
+        view.backgroundColor = UIColor(named: "DarkGray")
         configureUI()
     }
     
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         return label
     } ()
     
-    @objc func buttonPressed() {
+    @objc private func buttonPressed() {
         
         if let _ = MTLabel.text {
             MTLabel.text! += " Pressed"
@@ -49,12 +49,12 @@ class ViewController: UIViewController {
         print("Pressed")
     }
     
-    func configureUI() {
+    private func configureUI() {
         configureButton()
         configureLabel()
     }
     
-    func configureButton() {
+    private func configureButton() {
         view.addSubview(MTButton)
         MTButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         ])
     }
     
-    func configureLabel() {
+    private func configureLabel() {
         view.addSubview(MTLabel)
         
         NSLayoutConstraint.activate([
