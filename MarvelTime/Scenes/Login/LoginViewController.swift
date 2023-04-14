@@ -9,13 +9,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var didSendEventClosure: ((LoginViewController.Event) -> Void)?
+    private let avatarView = UIImageView()
+    private let userName = MTIconWithTextField()
+    private let password = MTIconWithTextField()
+    private let loginButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor(named: "DarkGray")
         
+        view.backgroundColor = UIColor(named: "DarkGray")
         configureUI()
     }
     
@@ -23,48 +25,109 @@ class LoginViewController: UIViewController {
         print("LoginViewController deinit")
     }
     
-    private let loginButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Login", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8.0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    @objc private func didTapLoginButton(_ sender: Any) {
-        didSendEventClosure?(.login)
-    }
-    
-    func configureUI() {
+    private func configureUI() {
+        configureNavigationBar()
+        configureAvatar()
+        configureUserName()
+        configurePassword()
         configureLoginButton()
+        
     }
     
-    func configureLoginButton() {
-        view.addSubview(loginButton)
-        
+    private func configureNavigationBar() {
+        title = "Login"
+    }
+    private func configureAvatar() {
+        avatarView.image = UIImage(named: "wolverine")
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(avatarView)
         NSLayoutConstraint.activate([
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loginButton.widthAnchor.constraint(equalToConstant: 200),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            avatarView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -160),
+            avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            avatarView.widthAnchor.constraint(equalToConstant: 160),
+            avatarView.heightAnchor.constraint(equalToConstant: 160),
         ])
         
-        loginButton.addTarget(self, action: #selector(didTapLoginButton(_:)), for: .touchUpInside)
     }
-
- 
-
-}
-
-
-//MARK: - LoginViewController Extension
-
-extension LoginViewController {
+    
+    private func configureUserName() {
+        let viewModel = MTIconWithTextFieldViewModel(icon: "person.fill", placeholder: "Enter your username")
+        userName.configure(with: viewModel)
+        userName.translatesAutoresizingMaskIntoConstraints = false
+        userName.delegate = self
+        view.addSubview(userName)
+        NSLayoutConstraint.activate([
+            userName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 30),
+            userName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            userName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            userName.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    private func configurePassword() {
+        let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password", isPassword: true)
+        password.configure(with: viewModel)
+        password.translatesAutoresizingMaskIntoConstraints = false
+        password.delegate = self
+        view.addSubview(password)
+        NSLayoutConstraint.activate([
+            password.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 20),
+            password.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            password.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            password.heightAnchor.constraint(equalToConstant: 60)
+        ])
+    }
+    
+    private func configureLoginButton() {
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.backgroundColor = UIColor(named: "DarkYellow")
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.layer.cornerRadius = 8.0
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loginButton)
+        NSLayoutConstraint.activate([
+            loginButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 30),
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
+            loginButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapLoginButton() {
+        let loginEvent = Event.login
+        didSendEventClosure?(loginEvent)
+        //        print("username: \(String(describing: userName.textField.text))")
+        //        print("password: \(String(describing: password.textField.text))")
+    }
+    
+    //MARK: - LoginViewController Extension
+    
     enum Event {
         case login
     }
+    
+    var didSendEventClosure: ((LoginViewController.Event) -> Void)?
+    
+}
+
+
+extension LoginViewController: MTIconWithTextFieldDelegate {
+    func textDidChange(text: String?) {
+        print(text ?? "")
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        print("Begin editing")
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("DidEndEditing")
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) {
+        print("Textfield")
+    }
+    
+    
 }
