@@ -26,5 +26,5 @@ protocol Coordinator: AnyObject {
 //MARK: - Coordinator Type
 
 enum CoordinatorType {
-    case app, login, tab
+    case app, login, register, tab
 }

@@ -40,9 +40,8 @@ class ReadyCoordinator: ReadyCoordinatorProtocol {
     func showReadyViewController() {
         let readyVC = ReadyViewController()
         readyVC.didSendEventClosure = { [weak self] event in
-            guard let self else { return }
             
-            finish()
+            self?.finish()
         }
         
         navigationController.pushViewController(readyVC, animated: true)

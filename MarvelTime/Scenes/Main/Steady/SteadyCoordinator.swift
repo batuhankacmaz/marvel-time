@@ -40,9 +40,8 @@ class SteadyCoordinator: SteadyCoordinatorProtocol {
     func showSteadyViewController() {
         let steadyVC = SteadyViewController()
         steadyVC.didSendEventClosure = { [weak self] event in
-            guard let self else { return }
             
-            finish()
+            self?.finish()
         }
         
         navigationController.pushViewController(steadyVC, animated: true)

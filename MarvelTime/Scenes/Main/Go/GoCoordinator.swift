@@ -41,9 +41,8 @@ class GoCoordinator: GoCoordinatorProtocol {
     func showGoViewController() {
         let goVC = GoViewController()
         goVC.didSendEventClosure = { [weak self] event in
-            guard let self else { return }
-            
-            finish()
+         
+            self?.finish()
         }
         
         navigationController.pushViewController(goVC, animated: true)

@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */; };
 		C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */; };
 		C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D529E066DE00DB21DA /* SceneDelegate.swift */; };
 		C5A0C2D829E066DE00DB21DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D729E066DE00DB21DA /* ViewController.swift */; };
 		C5A0C2DD29E066DE00DB21DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */; };
 		C5A0C2E029E066DE00DB21DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */; };
-		C5A0C2EC29E0E2DA00DB21DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2EB29E0E2DA00DB21DA /* HomeViewController.swift */; };
-		C5A0C2EE29E0E2EC00DB21DA /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2ED29E0E2EC00DB21DA /* FavoritesViewController.swift */; };
-		C5A0C2F029E0E4E700DB21DA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2EF29E0E4E700DB21DA /* MainTabBarViewController.swift */; };
 		C5B2DB0C29E5C2D400A63AE9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB0B29E5C2D400A63AE9 /* Coordinator.swift */; };
 		C5B2DB0F29E5C4C600A63AE9 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB0E29E5C4C600A63AE9 /* AppCoordinator.swift */; };
 		C5B2DB1129E5CD3200A63AE9 /* CoordinatorFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB1029E5CD3200A63AE9 /* CoordinatorFinishDelegate.swift */; };
@@ -36,9 +34,11 @@
 		C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */; };
 		C5B2DB4A29E9498300A63AE9 /* MTIconWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */; };
 		C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */; };
+		C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6843F29EDA59E00697655 /* UIViewController-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		C5A0C2D029E066DE00DB21DA /* MarvelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5A0C2D529E066DE00DB21DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,9 +46,6 @@
 		C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5A0C2DF29E066DE00DB21DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5A0C2E129E066DE00DB21DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5A0C2EB29E0E2DA00DB21DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		C5A0C2ED29E0E2EC00DB21DA /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		C5A0C2EF29E0E4E700DB21DA /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		C5B2DB0B29E5C2D400A63AE9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C5B2DB0E29E5C4C600A63AE9 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C5B2DB1029E5CD3200A63AE9 /* CoordinatorFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +67,7 @@
 		C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTIconWithTextField.swift; sourceTree = "<group>"; };
 		C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		C5F6843F29EDA59E00697655 /* UIViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,36 +100,16 @@
 		C5A0C2D229E066DE00DB21DA /* MarvelTime */ = {
 			isa = PBXGroup;
 			children = (
-				C5B2DB4829E9485A00A63AE9 /* Views */,
 				C5B2DB0D29E5C44500A63AE9 /* App */,
 				C5B2DB1A29E5D24E00A63AE9 /* Scenes */,
-				C5B2DB1229E5CDDE00A63AE9 /* Extensions */,
-				C5B2DB0A29E5C2C200A63AE9 /* Protocols */,
-				C5A0C2E729E0E27500DB21DA /* Controllers */,
+				C5B2DB4829E9485A00A63AE9 /* Views */,
+				C5F6843E29EDA37500697655 /* Helpers */,
 				C5A0C2D729E066DE00DB21DA /* ViewController.swift */,
 				C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */,
 				C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */,
 				C5A0C2E129E066DE00DB21DA /* Info.plist */,
 			);
 			path = MarvelTime;
-			sourceTree = "<group>";
-		};
-		C5A0C2E729E0E27500DB21DA /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C5A0C2E829E0E28500DB21DA /* Core */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		C5A0C2E829E0E28500DB21DA /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				C5A0C2EB29E0E2DA00DB21DA /* HomeViewController.swift */,
-				C5A0C2ED29E0E2EC00DB21DA /* FavoritesViewController.swift */,
-				C5A0C2EF29E0E4E700DB21DA /* MainTabBarViewController.swift */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		C5B2DB0A29E5C2C200A63AE9 /* Protocols */ = {
@@ -142,6 +120,7 @@
 				C5B2DB1029E5CD3200A63AE9 /* CoordinatorFinishDelegate.swift */,
 				C5B2DB1E29E5D5AA00A63AE9 /* LoginCoordinatorProtocol.swift */,
 				C5B2DB2529E5DE5500A63AE9 /* TabBarCoordinatorProtocol.swift */,
+				C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -161,6 +140,7 @@
 			children = (
 				C5B2DB1429E5CE0C00A63AE9 /* Coordinator-Extension.swift */,
 				C5B2DB1829E5D0C900A63AE9 /* AppCoordinator-Extension.swift */,
+				C5F6843F29EDA59E00697655 /* UIViewController-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +220,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C5F6843E29EDA37500697655 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C5B2DB0A29E5C2C200A63AE9 /* Protocols */,
+				C5B2DB1229E5CDDE00A63AE9 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,7 +302,6 @@
 				C5B2DB3929E6F56500A63AE9 /* GoCoordinator.swift in Sources */,
 				C5B2DB1729E5CF2900A63AE9 /* AppCoordinatorProtocol.swift in Sources */,
 				C5B2DB1529E5CE0C00A63AE9 /* Coordinator-Extension.swift in Sources */,
-				C5A0C2EC29E0E2DA00DB21DA /* HomeViewController.swift in Sources */,
 				C5B2DB0F29E5C4C600A63AE9 /* AppCoordinator.swift in Sources */,
 				C5B2DB1929E5D0C900A63AE9 /* AppCoordinator-Extension.swift in Sources */,
 				C5B2DB2629E5DE5500A63AE9 /* TabBarCoordinatorProtocol.swift in Sources */,
@@ -323,16 +311,16 @@
 				C5B2DB2829E5DF1800A63AE9 /* TabBarCoordinator.swift in Sources */,
 				C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */,
 				C5B2DB1F29E5D5AA00A63AE9 /* LoginCoordinatorProtocol.swift in Sources */,
+				C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */,
 				C5B2DB3729E6F55600A63AE9 /* GoViewController.swift in Sources */,
 				C5B2DB2E29E6F51400A63AE9 /* ReadyViewController.swift in Sources */,
 				C5B2DB3529E6F54900A63AE9 /* SteadyViewController.swift in Sources */,
-				C5A0C2F029E0E4E700DB21DA /* MainTabBarViewController.swift in Sources */,
 				C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */,
-				C5A0C2EE29E0E2EC00DB21DA /* FavoritesViewController.swift in Sources */,
 				C5B2DB2429E5D94A00A63AE9 /* TabBarCoordinatorModel.swift in Sources */,
 				C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */,
 				C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */,
 				C5B2DB0C29E5C2D400A63AE9 /* Coordinator.swift in Sources */,
+				C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */,
 				C5B2DB2129E5D5FE00A63AE9 /* LoginCoordinator.swift in Sources */,
 				C5B2DB1D29E5D27D00A63AE9 /* LoginViewController.swift in Sources */,
 				C5B2DB3029E6F52800A63AE9 /* ReadyCoordinator.swift in Sources */,
@@ -482,6 +470,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +498,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

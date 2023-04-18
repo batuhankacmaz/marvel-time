@@ -8,17 +8,20 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    var didSendEventClosure: ((LoginViewController.Event) -> Void)?
     
     private let avatarView = UIImageView()
     private let userName = MTIconWithTextField()
     private let password = MTIconWithTextField()
     private let loginButton = UIButton()
+    private let registerButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "DarkGray")
         configureUI()
+        self.hideKeyboardWhenTappedAround()
     }
     
     deinit {
@@ -31,6 +34,7 @@ class LoginViewController: UIViewController {
         configureUserName()
         configurePassword()
         configureLoginButton()
+        configureRegisterButton()
         
     }
     
@@ -94,6 +98,22 @@ class LoginViewController: UIViewController {
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
+    private func configureRegisterButton() {
+        registerButton.setTitle("Don't have an account. Register", for: .normal)
+        registerButton.setTitleColor(UIColor(named: "DarkYellow"), for: .normal)
+        registerButton.backgroundColor = .clear
+        
+        registerButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(registerButton)
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15),
+            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            registerButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+    }
+    
     @objc private func didTapLoginButton() {
         let loginEvent = Event.login
         didSendEventClosure?(loginEvent)
@@ -101,14 +121,23 @@ class LoginViewController: UIViewController {
         //        print("password: \(String(describing: password.textField.text))")
     }
     
-    //MARK: - LoginViewController Extension
-    
-    enum Event {
-        case login
+    @objc private func didTapRegisterButton() {
+       let registerEvent = Event.register
+//        didSendEventClosure?(loginEvent)
+        didSendEventClosure?(registerEvent)
+        //        print("username: \(String(describing: userName.textField.text))")
+        //        print("password: \(String(describing: password.textField.text))")
     }
     
-    var didSendEventClosure: ((LoginViewController.Event) -> Void)?
-    
+}
+
+//MARK: - LoginViewController Extension
+
+extension LoginViewController {
+    enum Event {
+        case login
+        case register
+    }
 }
 
 

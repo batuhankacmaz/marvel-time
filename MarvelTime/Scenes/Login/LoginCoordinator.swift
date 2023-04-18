@@ -35,11 +35,23 @@ class LoginCoordinator: LoginCoordinatorProtocol {
     func showLoginViewController() {
         let loginVC = LoginViewController()
         loginVC.didSendEventClosure = { [weak self] event in
-            guard let self else { return }
-            
-            finish()
+//            switch event {
+//            case  .login:
+//                self?.finish()
+//                self?.navigationController.pushViewController(loginVC, animated: true)
+//            case .register:
+//                self?.showRegisterViewController()
+//            }
+            self?.finish()
         }
         
         navigationController.pushViewController(loginVC, animated: true)
+        
+       
+    }
+    
+    func showRegisterViewController() {
+        let registerVC = RegisterViewController()
+        navigationController.pushViewController(registerVC, animated: true)
     }
 }
