@@ -9,6 +9,18 @@ import Foundation
 import UIKit
 
 class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
+        
+        switch childCoordinator.type {
+        case .register:
+            navigationController.viewControllers.removeAll()
+            self.finish()
+        default:
+            break
+        }
+    }
+    
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     
@@ -29,18 +41,6 @@ class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
     
     func start() {
         showLoginViewController()
-    }
-    
-    func coordinatorDidFinish(childCoordinator: Coordinator) {
-        childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
-        let appCordinator = AppCoordinator(navigationController)
-        switch childCoordinator.type {
-        case .register:
-            navigationController.viewControllers.removeAll()
-            appCordinator.showMainFlow()
-        default:
-            break
-        }
     }
     
     func showLoginViewController() {
