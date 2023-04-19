@@ -1,19 +1,20 @@
 //
-//  ReadyCoordinator.swift
+//  GoCoordinator.swift
 //  MarvelTime
 //
 //  Created by Batuhan Kacmaz on 12.04.2023.
 //
 
+
 import Foundation
 import UIKit
 
-protocol ReadyCoordinatorProtocol: Coordinator {
-    func showReadyViewController()
+protocol HomeCoordinatorProtocol: Coordinator {
+    func showGoViewController()
 }
 
 
-class ReadyCoordinator: ReadyCoordinatorProtocol {
+class HomeCoordinator: HomeCoordinatorProtocol {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     
@@ -29,22 +30,22 @@ class ReadyCoordinator: ReadyCoordinatorProtocol {
     }
     
     deinit {
-        print("ReadyCoordinator deinit")
+        print("GoCoordinator deinit")
         
     }
     
     func start() {
-        showReadyViewController()
+        showGoViewController()
     }
     
-    func showReadyViewController() {
-        let readyVC = ReadyViewController()
-        readyVC.didSendEventClosure = { [weak self] event in
-            
+    func showGoViewController() {
+        let homeVC = HomeViewController()
+        homeVC.didSendEventClosure = { [weak self] event in
+         
             self?.finish()
         }
         
-        navigationController.pushViewController(readyVC, animated: true)
+        navigationController.pushViewController(homeVC, animated: true)
     }
     
 }

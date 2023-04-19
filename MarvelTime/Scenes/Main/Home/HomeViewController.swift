@@ -7,9 +7,9 @@
 
 import UIKit
 
-class GoViewController: UIViewController {
+class HomeViewController: UIViewController {
     
-    var didSendEventClosure: ((GoViewController.Event) -> Void)?
+    var didSendEventClosure: ((HomeViewController.Event) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class GoViewController: UIViewController {
     }()
     
     @objc private func didTapGoButton(_ sender: Any) {
-        didSendEventClosure?(.go)
+        didSendEventClosure?(.comics)
     }
     
     func configureUI() {
@@ -63,8 +63,8 @@ class GoViewController: UIViewController {
 
 //MARK: - GoViewController Extension
 
-extension GoViewController {
+extension HomeViewController {
     enum Event {
-        case go
+        case comics
     }
 }

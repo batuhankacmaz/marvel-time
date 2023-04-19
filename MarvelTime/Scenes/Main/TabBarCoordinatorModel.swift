@@ -9,18 +9,18 @@ import Foundation
 import UIKit
 
 enum TabBarPage {
-    case ready
-    case steady
-    case go
+    case home
+    case comics
+    case favorites
     
     init?(index: Int) {
         switch index {
         case 0:
-            self = .ready
+            self = .home
         case 1:
-            self = .steady
+            self = .comics
         case 2:
-            self = .go
+            self = .favorites
         default:
             return nil
         }
@@ -28,34 +28,34 @@ enum TabBarPage {
     
     func pageTitleValue() -> String  {
         switch self {
-        case .ready:
-            return "Ready"
-        case .steady:
-            return "Steady"
-        case .go:
-            return "Go"
+        case .home:
+            return "Home"
+        case .comics:
+            return "Comics"
+        case .favorites:
+            return "Favorites"
         }
     }
     
     func pageOrderNumber() -> Int {
         switch self {
-        case .ready:
+        case .home:
             return 0
-        case .steady:
+        case .comics:
             return 1
-        case .go:
+        case .favorites:
             return 2
         }
     }
     
     func tabIconValue() -> String {
         switch self {
-        case .ready:
+        case .home:
             return "house"
-        case .steady:
+        case .comics:
+            return "newspaper.fill"
+        case .favorites:
             return "star.fill"
-        case .go:
-            return "house"
         }
     }
     

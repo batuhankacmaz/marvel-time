@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SteadyViewController: UIViewController {
+class ComicsViewController: UIViewController {
     
-    var didSendEventClosure: ((SteadyViewController.Event) -> Void)?
+    var didSendEventClosure: ((ComicsViewController.Event) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class SteadyViewController: UIViewController {
     }()
     
     @objc private func didTapSteadyButton(_ sender: Any) {
-        didSendEventClosure?(.steady)
+        didSendEventClosure?(.favorites)
     }
     
     func configureUI() {
@@ -61,8 +61,8 @@ class SteadyViewController: UIViewController {
 
 //MARK: - ReadyViewController Extension
 
-extension SteadyViewController {
+extension ComicsViewController {
     enum Event {
-        case steady
+        case favorites
     }
 }

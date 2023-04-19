@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol SteadyCoordinatorProtocol: Coordinator {
+protocol ComicsCoordinatorProtocol: Coordinator {
     func showSteadyViewController()
 }
 
 
-class SteadyCoordinator: SteadyCoordinatorProtocol {
+class ComicsCoordinator: ComicsCoordinatorProtocol {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     
@@ -38,13 +38,13 @@ class SteadyCoordinator: SteadyCoordinatorProtocol {
     }
     
     func showSteadyViewController() {
-        let steadyVC = SteadyViewController()
-        steadyVC.didSendEventClosure = { [weak self] event in
+        let comicsVC = ComicsViewController()
+        comicsVC.didSendEventClosure = { [weak self] event in
             
             self?.finish()
         }
         
-        navigationController.pushViewController(steadyVC, animated: true)
+        navigationController.pushViewController(comicsVC, animated: true)
     }
     
 }

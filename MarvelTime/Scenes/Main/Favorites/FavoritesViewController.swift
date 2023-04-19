@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ReadyViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     
-    var didSendEventClosure: ((ReadyViewController.Event) -> Void)?
+    var didSendEventClosure: ((FavoritesViewController.Event) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class ReadyViewController: UIViewController {
     }
     
     deinit {
-        print("ReadyViewController deinit")
+        print("FavoritesViewController deinit")
     }
     
     private let readyButton: UIButton = {
@@ -36,7 +36,7 @@ class ReadyViewController: UIViewController {
     }()
     
     @objc private func didTapReadyButton(_ sender: Any) {
-        didSendEventClosure?(.ready)
+        didSendEventClosure?(.home)
     }
     
     func configureUI() {
@@ -60,8 +60,8 @@ class ReadyViewController: UIViewController {
 
 //MARK: - ReadyViewController Extension
 
-extension ReadyViewController {
+extension FavoritesViewController {
     enum Event {
-        case ready
+        case home
     }
 }

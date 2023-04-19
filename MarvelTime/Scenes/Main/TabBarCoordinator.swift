@@ -24,7 +24,7 @@ class TabBarCoordinator: NSObject, Coordinator {
     }
     
     func start() {
-        let pages: [TabBarPage] = [.go, .steady, .ready]
+        let pages: [TabBarPage] = [.home, .comics, .favorites]
             .sorted { $0.pageOrderNumber() < $1.pageOrderNumber() }
         
         let controllers: [UINavigationController] = pages.map { getTabBarController($0) }
@@ -40,7 +40,7 @@ class TabBarCoordinator: NSObject, Coordinator {
     private func prepareTabBarController(withTabBarControllers tabBarControllers: [UIViewController]) {
         tabBarController.delegate = self
         tabBarController.setViewControllers(tabBarControllers, animated: true)
-        tabBarController.selectedIndex = TabBarPage.ready.pageOrderNumber()
+        tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
         tabBarController.tabBar.isTranslucent = false
         
         navigationController.viewControllers = [tabBarController]
@@ -53,36 +53,36 @@ class TabBarCoordinator: NSObject, Coordinator {
         navController.tabBarItem = UITabBarItem(title: page.pageTitleValue(), image: UIImage(systemName: page.tabIconValue()), tag: page.pageOrderNumber())
         
         switch page {
-        case .ready:
-            let readyVC = ReadyViewController()
-            readyVC.didSendEventClosure = { [weak self] event in
+        case .home:
+            let homeVC = HomeViewController()
+            homeVC.didSendEventClosure = { [weak self] event in
                 switch event {
-                case .ready:
-                    self?.selectPage(.steady)
+                case .comics:
+                    self?.selectPage(.comics)
                 }
             }
             
-            navController.pushViewController(readyVC, animated: true)
-        case .steady:
-            let steadyVC = SteadyViewController()
-            steadyVC.didSendEventClosure = { [weak self] event in
+            navController.pushViewController(homeVC, animated: true)
+        case .comics:
+            let comicsVC = ComicsViewController()
+            comicsVC.didSendEventClosure = { [weak self] event in
                 switch event {
-                case .steady:
-                    self?.selectPage(.go)
+                case .favorites:
+                    self?.selectPage(.favorites)
                 }
             }
             
-            navController.pushViewController(steadyVC, animated: true)
-        case .go:
-            let goVC = GoViewController()
-            goVC.didSendEventClosure = { [weak self] event in
+            navController.pushViewController(comicsVC, animated: true)
+        case .favorites:
+            let favoritesVC = FavoritesViewController()
+            favoritesVC.didSendEventClosure = { [weak self] event in
                 switch event {
-                case .go:
+                case .home:
                     self?.finish()
                 }
             }
             
-            navController.pushViewController(goVC, animated: true)
+            navController.pushViewController(favoritesVC, animated: true)
         }
         
         return navController
