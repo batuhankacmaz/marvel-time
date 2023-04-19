@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
         
         view.backgroundColor = UIColor(named: "DarkGray")
         configureUI()
+      
+        self.navigationItem.backButtonTitle = "Login"
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -29,7 +31,6 @@ class LoginViewController: UIViewController {
     }
     
     private func configureUI() {
-        configureNavigationBar()
         configureAvatar()
         configureUserName()
         configurePassword()
@@ -38,9 +39,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func configureNavigationBar() {
-        title = "Login"
-    }
+
     private func configureAvatar() {
         avatarView.image = UIImage(named: "wolverine")
         avatarView.translatesAutoresizingMaskIntoConstraints = false

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LoginCoordinator: LoginCoordinatorProtocol {
+class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     
@@ -20,7 +20,6 @@ class LoginCoordinator: LoginCoordinatorProtocol {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
     }
     
     deinit {
@@ -32,26 +31,40 @@ class LoginCoordinator: LoginCoordinatorProtocol {
         showLoginViewController()
     }
     
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
+        let appCordinator = AppCoordinator(navigationController)
+        switch childCoordinator.type {
+        case .register:
+            navigationController.viewControllers.removeAll()
+            appCordinator.showMainFlow()
+        default:
+            break
+        }
+    }
+    
     func showLoginViewController() {
         let loginVC = LoginViewController()
+        
         loginVC.didSendEventClosure = { [weak self] event in
-//            switch event {
-//            case  .login:
-//                self?.finish()
-//                self?.navigationController.pushViewController(loginVC, animated: true)
-//            case .register:
-//                self?.showRegisterViewController()
-//            }
-            self?.finish()
+            switch event {
+            case  .login:
+                self?.finish()
+            case .register:
+                self?.showRegisterViewController()
+            }
+            
         }
         
         navigationController.pushViewController(loginVC, animated: true)
         
-       
+        
     }
     
     func showRegisterViewController() {
-        let registerVC = RegisterViewController()
-        navigationController.pushViewController(registerVC, animated: true)
+        let registerCoordinator = RegisterCoordinator(navigationController)
+        registerCoordinator.finishDelegate = self
+        registerCoordinator.start()
+        childCoordinators.append(registerCoordinator)
     }
 }

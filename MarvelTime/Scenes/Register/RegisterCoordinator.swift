@@ -32,6 +32,10 @@ class RegisterCoordinator: RegisterCoordinatorProtocol {
     
     func showRegisterViewController() {
         let registerVC = RegisterViewController()
+        registerVC.didSendEventClosure = { [weak self] event in
+            self?.finish()
+            
+        }
         navigationController.pushViewController(registerVC, animated: true)
     }
     

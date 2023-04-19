@@ -18,7 +18,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(true, animated: true)
+        self.navigationController.navigationBar.tintColor = UIColor(named: "DarkYellow")
     }
     
     func start() {
@@ -26,7 +26,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func showLoginFlow() {
-         // Implement Login Flow
+        // Implement Login Flow
         let loginCoordinator = LoginCoordinator(navigationController)
         loginCoordinator.finishDelegate = self
         loginCoordinator.start()
