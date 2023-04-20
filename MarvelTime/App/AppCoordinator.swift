@@ -19,10 +19,11 @@ class AppCoordinator: AppCoordinatorProtocol {
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.navigationController.navigationBar.tintColor = UIColor(named: "DarkYellow")
+        
     }
     
     func start() {
-        showLoginFlow()
+        showMainFlow()
     }
     
     func showLoginFlow() {

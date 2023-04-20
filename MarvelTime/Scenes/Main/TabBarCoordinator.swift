@@ -20,6 +20,7 @@ class TabBarCoordinator: NSObject, Coordinator {
     
     required  init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.navigationBar.isHidden = true
         self.tabBarController = .init()
     }
     
@@ -41,8 +42,8 @@ class TabBarCoordinator: NSObject, Coordinator {
         tabBarController.delegate = self
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
-        tabBarController.tabBar.isTranslucent = false
-        
+        tabBarController.tabBar.barTintColor = UIColor(named: "DarkGray")
+        tabBarController.tabBar.tintColor = UIColor(named: "DarkYellow")
         navigationController.viewControllers = [tabBarController]
     }
     
@@ -105,7 +106,7 @@ class TabBarCoordinator: NSObject, Coordinator {
 extension TabBarCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
-        // Some implementation
+        
     }
 }
 

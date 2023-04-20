@@ -26,7 +26,6 @@ class HomeCoordinator: HomeCoordinatorProtocol {
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        
     }
     
     deinit {
@@ -49,3 +48,6 @@ class HomeCoordinator: HomeCoordinatorProtocol {
     }
     
 }
+
+
+
