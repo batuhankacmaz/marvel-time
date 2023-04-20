@@ -14,7 +14,7 @@ class MTCollectionViewTableViewCell: UITableViewCell {
     private let collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 175, height: 250)
+        layout.itemSize = CGSize(width: 180, height: 320)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "marvelTimeCollectionViewCell")
