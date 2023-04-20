@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         table.register(MTCollectionViewTableViewCell.self, forCellReuseIdentifier: MTCollectionViewTableViewCell.identifier)
         table.backgroundView = nil
         table.backgroundColor = UIColor.clear
-        table.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
 
@@ -31,12 +31,13 @@ class HomeViewController: UIViewController {
         
         homeComicsTable.delegate = self
         homeComicsTable.dataSource = self
+      
         configureUI()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        homeComicsTable.frame = view.bounds
+        // homeComicsTable.frame = view.bounds => frame get bigger same as view
         
     }
     
@@ -79,6 +80,12 @@ class HomeViewController: UIViewController {
     
     private func configureHomeComicsTable() {
         view.addSubview(homeComicsTable)
+        NSLayoutConstraint.activate([
+            homeComicsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            homeComicsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            homeComicsTable.topAnchor.constraint(equalTo: view.topAnchor),
+            homeComicsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     
@@ -119,6 +126,14 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let  defaultOffset = view.safeAreaInsets.top
+        let  offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+        navigationController?.navigationBar.barTintColor = UIColor(named: "DarkGray")
     }
     
 }
