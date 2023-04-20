@@ -67,10 +67,10 @@ class LoginViewController: UIViewController {
         self.navigationItem.backButtonTitle = "Login"
         self.hideKeyboardWhenTappedAround()
         
+        configureUI()
         userName.delegate = self
         password.delegate = self
-        configureUI()
-        
+      
     }
     
     deinit {

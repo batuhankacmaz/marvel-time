@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559141F29F1575C0025BB92 /* UIImage-Extension.swift */; };
+		C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */; };
 		C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */; };
 		C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */; };
 		C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D529E066DE00DB21DA /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		C559141F29F1575C0025BB92 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
+		C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		C5A0C2D029E066DE00DB21DA /* MarvelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */,
+				C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				C5B2DB2E29E6F51400A63AE9 /* FavoritesViewController.swift in Sources */,
 				C5B2DB3529E6F54900A63AE9 /* ComicsViewController.swift in Sources */,
 				C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */,
+				C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */,
 				C5B2DB2429E5D94A00A63AE9 /* TabBarCoordinatorModel.swift in Sources */,
 				C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */,
 				C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */,

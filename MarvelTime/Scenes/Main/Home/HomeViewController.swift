@@ -7,16 +7,37 @@
 
 import UIKit
 
+
+
 class HomeViewController: UIViewController {
     
     var didSendEventClosure: ((HomeViewController.Event) -> Void)?
+    let sectionTitles: [String] = ["Your New Issues", "Previews", "Based on Your Preferences"]
+    
+    private let homeComicsTable: UITableView = {
+       
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(MTCollectionViewTableViewCell.self, forCellReuseIdentifier: MTCollectionViewTableViewCell.identifier)
+        table.backgroundView = nil
+        table.backgroundColor = UIColor.clear
+        table.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor(named: "DarkGray")
         
+        homeComicsTable.delegate = self
+        homeComicsTable.dataSource = self
         configureUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        homeComicsTable.frame = view.bounds
+        
     }
     
     @objc private func didTapGoButton(_ sender: Any) {
@@ -24,6 +45,7 @@ class HomeViewController: UIViewController {
     }
     
     private func configureUI() {
+        configureHomeComicsTable()
         configureNavbar()
       
     }
@@ -55,6 +77,11 @@ class HomeViewController: UIViewController {
         
     }
     
+    private func configureHomeComicsTable() {
+        view.addSubview(homeComicsTable)
+    }
+    
+    
 }
 
 
@@ -64,5 +91,44 @@ extension HomeViewController {
     enum Event {
         case comics
     }
+    
+    enum Sections: Int {
+        case YourNewIssues = 0
+        case Previews = 1
+        case BasedOnYourPreferences = 2
+    }
 }
+
+//MARK: - UITableViewDataSource
+
+extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MTCollectionViewTableViewCell.identifier, for: indexPath) as? MTCollectionViewTableViewCell else { return UITableViewCell() }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
+    
+}
+
+//MARK: - UITableViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+    
+}
+
+
+
 

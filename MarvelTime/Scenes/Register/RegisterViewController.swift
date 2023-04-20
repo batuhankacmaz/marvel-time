@@ -67,11 +67,10 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = UIColor(named: "DarkGray")
         self.hideKeyboardWhenTappedAround()
         
-       
+        configureUI()
         userName.delegate = self
         password.delegate = self
         repassword.delegate = self
-        configureUI()
     }
     
     deinit {
