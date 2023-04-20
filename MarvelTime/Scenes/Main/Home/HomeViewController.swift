@@ -19,19 +19,6 @@ class HomeViewController: UIViewController {
         configureUI()
     }
     
-    
-    private let goButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Go", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8.0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
     @objc private func didTapGoButton(_ sender: Any) {
         didSendEventClosure?(.comics)
     }
@@ -68,22 +55,6 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-    private func configureGoButton() {
-        view.addSubview(goButton)
-        
-        NSLayoutConstraint.activate([
-            goButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            goButton.widthAnchor.constraint(equalToConstant: 200),
-            goButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        goButton.addTarget(self, action: #selector(didTapGoButton(_:)), for: .touchUpInside)
-    }
-
-   
-
 }
 
 
@@ -95,8 +66,3 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: UIBarPositioningDelegate {
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-}
