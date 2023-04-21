@@ -37,6 +37,9 @@
 		C5B2DB4A29E9498300A63AE9 /* MTIconWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */; };
 		C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */; };
 		C5EE0CDE29F1C69B00C203FC /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CDD29F1C69B00C203FC /* String-Extension.swift */; };
+		C5EE0CE129F2749C00C203FC /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CE029F2749C00C203FC /* APICaller.swift */; };
+		C5EE0CE429F27A7E00C203FC /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5EE0CE329F27A7E00C203FC /* Configuration.plist */; };
+		C5EE0CE629F27F4200C203FC /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CE529F27F4200C203FC /* test.swift */; };
 		C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F6843F29EDA59E00697655 /* UIViewController-Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,9 @@
 		C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTIconWithTextField.swift; sourceTree = "<group>"; };
 		C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		C5EE0CDD29F1C69B00C203FC /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
+		C5EE0CE029F2749C00C203FC /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		C5EE0CE329F27A7E00C203FC /* Configuration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		C5EE0CE529F27F4200C203FC /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		C5F6843F29EDA59E00697655 /* UIViewController-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,7 +124,9 @@
 				C5B2DB0D29E5C44500A63AE9 /* App */,
 				C5B2DB1A29E5D24E00A63AE9 /* Scenes */,
 				C5B2DB4829E9485A00A63AE9 /* Views */,
+				C5EE0CDF29F2748700C203FC /* Manager */,
 				C5F6843E29EDA37500697655 /* Helpers */,
+				C5EE0CE229F279F600C203FC /* Resources */,
 				C5A0C2D729E066DE00DB21DA /* ViewController.swift */,
 				C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */,
 				C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */,
@@ -229,6 +237,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C5EE0CDF29F2748700C203FC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE0CE029F2749C00C203FC /* APICaller.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C5EE0CE229F279F600C203FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE0CE329F27A7E00C203FC /* Configuration.plist */,
+				C5EE0CE529F27F4200C203FC /* test.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C5F6843E29EDA37500697655 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5EE0CE429F27A7E00C203FC /* Configuration.plist in Resources */,
 				C5A0C2E029E066DE00DB21DA /* LaunchScreen.storyboard in Resources */,
 				C5A0C2DD29E066DE00DB21DA /* Assets.xcassets in Resources */,
 			);
@@ -311,6 +337,7 @@
 				C5B2DB3929E6F56500A63AE9 /* HomeCoordinator.swift in Sources */,
 				C5B2DB1729E5CF2900A63AE9 /* AppCoordinatorProtocol.swift in Sources */,
 				C5B2DB1529E5CE0C00A63AE9 /* Coordinator-Extension.swift in Sources */,
+				C5EE0CE629F27F4200C203FC /* test.swift in Sources */,
 				C5B2DB0F29E5C4C600A63AE9 /* AppCoordinator.swift in Sources */,
 				C5B2DB1929E5D0C900A63AE9 /* AppCoordinator-Extension.swift in Sources */,
 				C5B2DB2629E5DE5500A63AE9 /* TabBarCoordinatorProtocol.swift in Sources */,
@@ -321,6 +348,7 @@
 				C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */,
 				C5B2DB1F29E5D5AA00A63AE9 /* LoginCoordinatorProtocol.swift in Sources */,
 				C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */,
+				C5EE0CE129F2749C00C203FC /* APICaller.swift in Sources */,
 				C5B2DB3729E6F55600A63AE9 /* HomeViewController.swift in Sources */,
 				C5B2DB2E29E6F51400A63AE9 /* FavoritesViewController.swift in Sources */,
 				C5B2DB3529E6F54900A63AE9 /* ComicsViewController.swift in Sources */,

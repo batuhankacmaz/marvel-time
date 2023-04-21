@@ -147,7 +147,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     private func configureTableViewHeaderLabel(with header: UITableViewHeaderFooterView) -> UILabel {
-        let lbl = UILabel(frame: CGRect(x: 0,y: header.frame.height-30, width: header.frame.size.width / 2,height: 20))
+        let lbl = UILabel(frame: CGRect(x: 0,y: header.frame.height-30, width: header.frame.size.width ,height: 20))
         lbl.numberOfLines = 0
         lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         lbl.textColor = .white
