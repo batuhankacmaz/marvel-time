@@ -17,7 +17,7 @@ class MTCollectionViewTableViewCell: UITableViewCell {
         layout.itemSize = CGSize(width: 180, height: 320)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "marvelTimeCollectionViewCell")
+        collectionView.register(MTComicCollectionViewCell.self, forCellWithReuseIdentifier: MTComicCollectionViewCell.identifier)
         collectionView.backgroundView = nil
         collectionView.backgroundColor = UIColor.clear
         
@@ -61,8 +61,8 @@ extension MTCollectionViewTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "marvelTimeCollectionViewCell", for: indexPath)
-        cell.backgroundColor = .blue
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MTComicCollectionViewCell.identifier, for: indexPath) as? MTComicCollectionViewCell else { return UICollectionViewCell() }
+        // cell.backgroundColor = .blue
         return cell
     }
 }
