@@ -10,51 +10,38 @@ import UIKit
 class ComicsViewController: UIViewController {
     
     var didSendEventClosure: ((ComicsViewController.Event) -> Void)?
-
+    
+    private let navigationBarTitle = MTNavigationBarTitle(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
+    private let navigationBarAvatar = MTNavigationBarAvatar(frame: CGRect(x: 0, y: 0, width: 32, height: 32), avatarName: "wolverine", size: 32)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor(named: "DarkGray")
         
         configureUI()
     }
     
-    deinit {
-        print("SteadyViewController deinit")
+    private func configureUI() {
+        configureNavbar()
     }
     
-    private let steadyButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Steady", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8.0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    @objc private func didTapSteadyButton(_ sender: Any) {
-        didSendEventClosure?(.favorites)
+    private func configureNavbar() {
+        configureLeftPartNavbar()
+        configureRightPartNavbar()
     }
     
-    func configureUI() {
-        configureSteadyButton()
+    private func configureLeftPartNavbar() {
+        navigationBarTitle.configureLabel(title: "Comics")
+        let leftBarButtonItem = UIBarButtonItem(customView: navigationBarTitle)
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
-    func configureSteadyButton() {
-        view.addSubview(steadyButton)
-        
-        NSLayoutConstraint.activate([
-            steadyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            steadyButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            steadyButton.widthAnchor.constraint(equalToConstant: 200),
-            steadyButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        steadyButton.addTarget(self, action: #selector(didTapSteadyButton(_:)), for: .touchUpInside)
+    private func configureRightPartNavbar() {
+        let rightBarButtonItem = UIBarButtonItem(customView: navigationBarAvatar)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
 
 }
 

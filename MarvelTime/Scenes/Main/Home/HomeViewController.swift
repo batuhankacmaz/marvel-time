@@ -14,6 +14,9 @@ class HomeViewController: UIViewController {
     var didSendEventClosure: ((HomeViewController.Event) -> Void)?
     let sectionTitles: [String] = ["Your New Issues", "Previews", "Based on Your Preferences"]
     
+    private let navigationBarTitle = MTNavigationBarTitle(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
+    private let navigationBarAvatar = MTNavigationBarAvatar(frame: CGRect(x: 0, y: 0, width: 32, height: 32), avatarName: "wolverine", size: 32)
+    
     private let homeComicsTable: UITableView = {
         
         let table = UITableView(frame: .zero, style: .grouped)
@@ -43,12 +46,6 @@ class HomeViewController: UIViewController {
         
     }
     
-   
-    
-    @objc private func didTapGoButton(_ sender: Any) {
-        didSendEventClosure?(.comics)
-    }
-    
     private func configureUI() {
         configureHomeComicsTable()
         configureNavbar()
@@ -61,24 +58,16 @@ class HomeViewController: UIViewController {
     }
     
     private func configureLeftPartNavbar() {
-        let fontSize:CGFloat = 22;
-        let font:UIFont = UIFont.boldSystemFont(ofSize: fontSize);
-        let attributes = [NSAttributedString.Key.font: font];
-        let item = UIBarButtonItem.init();
+        navigationBarTitle.configureLabel(title: "Hi Batu")
+        let leftBarButtonItem = UIBarButtonItem(customView: navigationBarTitle)
         
-        item.title = "Hi Batu";
-        item.tintColor = .white
-        item.setTitleTextAttributes(attributes, for: UIControl.State.normal);
-        
-        self.navigationItem.leftBarButtonItem = item;
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     }
     
     private func configureRightPartNavbar() {
-        var image = UIImage(named: "wolverine")?.resizeImage(size: CGSize(width: 32, height: 32))
+        let rightBarButtonItem = UIBarButtonItem(customView: navigationBarAvatar)
         
-        image = image?.withRenderingMode(.alwaysOriginal)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
         
     }
     
