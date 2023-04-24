@@ -38,6 +38,7 @@
 		C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */; };
 		C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */; };
 		C5CEBF4429F54A6600330A49 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C5CEBF4329F54A6600330A49 /* SDWebImage */; };
+		C5CEBF4829F5586B00330A49 /* MTCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4729F5586B00330A49 /* MTCharacter.swift */; };
 		C5EE0CDE29F1C69B00C203FC /* String-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CDD29F1C69B00C203FC /* String-Extension.swift */; };
 		C5EE0CE129F2749C00C203FC /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CE029F2749C00C203FC /* APICaller.swift */; };
 		C5EE0CE829F2858800C203FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE0CE729F2858800C203FC /* Constants.swift */; };
@@ -79,6 +80,7 @@
 		C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTIconWithTextField.swift; sourceTree = "<group>"; };
 		C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTComicCollectionViewCell.swift; sourceTree = "<group>"; };
+		C5CEBF4729F5586B00330A49 /* MTCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCharacter.swift; sourceTree = "<group>"; };
 		C5EE0CDD29F1C69B00C203FC /* String-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Extension.swift"; sourceTree = "<group>"; };
 		C5EE0CE029F2749C00C203FC /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		C5EE0CE729F2858800C203FC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -127,12 +129,14 @@
 		C5A0C2D229E066DE00DB21DA /* MarvelTime */ = {
 			isa = PBXGroup;
 			children = (
-				C5B2DB0D29E5C44500A63AE9 /* App */,
-				C5B2DB1A29E5D24E00A63AE9 /* Scenes */,
-				C5B2DB4829E9485A00A63AE9 /* Views */,
 				C5EE0CDF29F2748700C203FC /* Manager */,
 				C5F6843E29EDA37500697655 /* Helpers */,
 				C5EE0CE229F279F600C203FC /* Resources */,
+				C5B2DB0D29E5C44500A63AE9 /* App */,
+				C5CEBF4529F557A700330A49 /* Models */,
+				C5B2DB4829E9485A00A63AE9 /* Views */,
+				C5CEBF4629F557B300330A49 /* ViewModels */,
+				C5B2DB1A29E5D24E00A63AE9 /* Scenes */,
 				C5A0C2D729E066DE00DB21DA /* ViewController.swift */,
 				C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */,
 				C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */,
@@ -243,6 +247,21 @@
 				C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C5CEBF4529F557A700330A49 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5CEBF4729F5586B00330A49 /* MTCharacter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C5CEBF4629F557B300330A49 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C5EE0CDF29F2748700C203FC /* Manager */ = {
@@ -369,6 +388,7 @@
 				C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */,
 				C5EE0CDE29F1C69B00C203FC /* String-Extension.swift in Sources */,
 				C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */,
+				C5CEBF4829F5586B00330A49 /* MTCharacter.swift in Sources */,
 				C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */,
 				C5B2DB2429E5D94A00A63AE9 /* TabBarCoordinatorModel.swift in Sources */,
 				C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */,
