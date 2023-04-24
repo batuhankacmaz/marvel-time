@@ -32,7 +32,9 @@ class HomeViewController: UIViewController {
         homeComicsTable.delegate = self
         homeComicsTable.dataSource = self
         
+                
         configureUI()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,6 +42,8 @@ class HomeViewController: UIViewController {
         // homeComicsTable.frame = view.bounds => frame get bigger same as view
         
     }
+    
+   
     
     @objc private func didTapGoButton(_ sender: Any) {
         didSendEventClosure?(.comics)
@@ -120,6 +124,38 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MTCollectionViewTableViewCell.identifier, for: indexPath) as? MTCollectionViewTableViewCell else { return UITableViewCell() }
+        
+        switch indexPath.section {
+        case Sections.YourNewIssues.rawValue:
+            APICaller.shared.getCharacters(name: "spider-man") { result in
+                switch result {
+                case .success(let characters):
+                    cell.configure(with: characters)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Previews.rawValue:
+            APICaller.shared.getCharacters(name: "wolverine") { result in
+                switch result {
+                case .success(let characters):
+                    cell.configure(with: characters)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.BasedOnYourPreferences.rawValue:
+            APICaller.shared.getCharacters(name: "iron") { result in
+                switch result {
+                case .success(let characters):
+                    cell.configure(with: characters)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            return UITableViewCell()
+        }
         
         return cell
     }

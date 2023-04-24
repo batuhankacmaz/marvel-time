@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MTComicCollectionViewCell: UICollectionViewCell {
     
@@ -20,34 +21,34 @@ class MTComicCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let comicHeader: UITextView = {
-        let text = UITextView()
-        text.text = "Spider-man"
-        text.font = UIFont.systemFont(ofSize: 12, weight: .bold)
-        text.backgroundColor = .clear
-        text.textColor = .white
-        text.translatesAutoresizingMaskIntoConstraints = false
-        return text
+    private let comicHeader: UILabel = {
+        let label = UILabel()
+        label.text = "Spider-man"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+        label.backgroundColor = .clear
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    private let comicType: UITextView = {
-        let text = UITextView()
-        text.text = "Marvel"
-        text.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        text.backgroundColor = .clear
-        text.textColor = .white
-        text.translatesAutoresizingMaskIntoConstraints = false
-        return text
+    private let comicType: UILabel = {
+        let label = UILabel()
+        label.text = "Marvel"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        label.backgroundColor = .clear
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    private let comicHistory: UITextView = {
-        let text = UITextView()
-        text.text = "16/03/2022"
-        text.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        text.backgroundColor = .clear
-        text.textColor = .white
-        text.translatesAutoresizingMaskIntoConstraints = false
-        return text
+    private let comicHistory: UILabel = {
+        let label = UILabel()
+        label.text = "16/03/2022"
+        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        label.backgroundColor = .clear
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     override init(frame: CGRect) {
@@ -112,5 +113,19 @@ class MTComicCollectionViewCell: UICollectionViewCell {
             comicHistory.heightAnchor.constraint(equalToConstant: 24)
             
         ])
+    }
+    
+    public func configure(with model: MTCharacter) {
+        guard let path = model.thumbnail?.path, let imageExtension = model.thumbnail?.extensionValue, let name = model.name, let modified = model.modified else  { return }
+        let completePath = "\(path).\(imageExtension)"
+        guard let url = URL(string: completePath) else { return }
+        comicImageView.sd_setImage(with: url)
+        comicHeader.text = name
+        let charToFind: String.Element = "T"
+        if let lastIndex = modified.firstIndex(of: charToFind) {
+            let yearMontDay = String(modified[..<lastIndex])
+            comicHistory.text = yearMontDay.formatDayMonthYear
+        }
+        
     }
 }

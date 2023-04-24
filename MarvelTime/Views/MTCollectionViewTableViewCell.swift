@@ -11,6 +11,9 @@ class MTCollectionViewTableViewCell: UITableViewCell {
     
     static let identifier = "MTCollectionViewTableViewCell"
     
+    
+    private var characters: [MTCharacter] = [MTCharacter]()
+    
     private let collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
@@ -42,6 +45,13 @@ class MTCollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
     }
     
+    public func configure(with characters: [MTCharacter]) {
+        self.characters = characters
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+    
     private func configureUI(){
         configureCollectionView()
     }
@@ -57,12 +67,17 @@ class MTCollectionViewTableViewCell: UITableViewCell {
 
 extension MTCollectionViewTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MTComicCollectionViewCell.identifier, for: indexPath) as? MTComicCollectionViewCell else { return UICollectionViewCell() }
         // cell.backgroundColor = .blue
+        
+        let model = characters[indexPath.row]
+        
+        cell.configure(with: model)
+        
         return cell
     }
 }
