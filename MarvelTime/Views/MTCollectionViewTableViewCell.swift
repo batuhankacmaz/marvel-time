@@ -73,8 +73,8 @@ extension MTCollectionViewTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MTComicCollectionViewCell.identifier, for: indexPath) as? MTComicCollectionViewCell else { return UICollectionViewCell() }
         // cell.backgroundColor = .blue
-        
-        let model = characters[indexPath.row]
+        let character = characters[indexPath.row]
+        let model = MTCharacterViewModel(name: character.name, thumbnail: character.thumbnail, modified: character.modified)
         
         cell.configure(with: model)
         

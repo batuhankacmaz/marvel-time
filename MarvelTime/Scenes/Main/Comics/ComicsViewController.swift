@@ -40,7 +40,7 @@ class ComicsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        comicsTable.frame = view.bounds
+        comicsTable.frame = view.bounds.inset(by: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12))
     }
     
     private func configureUI() {
@@ -67,7 +67,7 @@ class ComicsViewController: UIViewController {
 }
 
 
-//MARK: - ReadyViewController Extension
+//MARK: - ComicsViewController Extension
 
 extension ComicsViewController {
     enum Event {
@@ -84,9 +84,14 @@ extension ComicsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MTComicTableViewCell.identifier, for: indexPath)
-        cell.backgroundColor = .clear
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(named: "DarkGray")
+        cell.backgroundColor = UIColor(named: "DarkGray")
+        cell.selectedBackgroundView = bgColorView
         return cell
     }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150

@@ -115,17 +115,13 @@ class MTComicCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    public func configure(with model: MTCharacter) {
-        guard let path = model.thumbnail?.path, let imageExtension = model.thumbnail?.extensionValue, let name = model.name, let modified = model.modified else  { return }
+    public func configure(with model: MTCharacterViewModel) {
+        guard let path = model.thumbnail?.path, let imageExtension = model.thumbnail?.extensionValue, let name = model.name else  { return }
         let completePath = "\(path).\(imageExtension)"
         guard let url = URL(string: completePath) else { return }
         comicImageView.sd_setImage(with: url)
         comicHeader.text = name
-        let charToFind: String.Element = "T"
-        if let lastIndex = modified.firstIndex(of: charToFind) {
-            let yearMontDay = String(modified[..<lastIndex])
-            comicHistory.text = yearMontDay.formatDayMonthYear
-        }
+        comicHistory.text = model.modifiedDate
         
     }
 }
