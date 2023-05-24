@@ -13,9 +13,9 @@ class LoginViewController: UIViewController {
     
     private let avatarView: UIImageView = {
         
-        let image = UIImageView(image: UIImage(named: "wolverine"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        
+        let image = UIImageView()
+        image.image = UIImage(named: "wolverine")
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         let viewModel = MTIconWithTextFieldViewModel(icon: "person.fill", placeholder: "Enter your username")
         let textField = MTIconWithTextField()
         textField.configure(with: viewModel)
-        textField.translatesAutoresizingMaskIntoConstraints = false
+      
         
         return textField
     }()
@@ -33,11 +33,11 @@ class LoginViewController: UIViewController {
         let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password", isPassword: true)
         let textField = MTIconWithTextField()
         textField.configure(with: viewModel)
-        textField.translatesAutoresizingMaskIntoConstraints = false
+   
         
         return textField
     }()
-    
+
     private let loginButton: UIButton = {
         
         let button = UIButton()
@@ -45,19 +45,49 @@ class LoginViewController: UIViewController {
         button.backgroundColor = UIColor(named: "DarkYellow")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8.0
-        button.translatesAutoresizingMaskIntoConstraints = false
+        
         
         return button
     }()
+    
     private let registerButton: UIButton = {
         
         let button = UIButton()
         button.setTitle("Don't have an account. Register", for: .normal)
         button.setTitleColor(UIColor(named: "DarkYellow"), for: .normal)
         button.backgroundColor = .clear
-        button.translatesAutoresizingMaskIntoConstraints = false
+       
+      
         
         return button
+    }()
+    
+    lazy var textFieldStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 40.0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.addSubviews([userName, password])
+        return stackView
+    }()
+    
+    lazy var buttonStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 20.0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.addSubviews([loginButton, registerButton])
+        return stackView
+    }()
+    
+    lazy var loginStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 60.0
+        stackView.addSubviews([ avatarView, textFieldStack, buttonStack])
+        return stackView
     }()
     
     override func viewDidLoad() {
@@ -78,70 +108,29 @@ class LoginViewController: UIViewController {
     }
     
     private func configureUI() {
-        configureAvatar()
-        configureUserName()
-        configurePassword()
+        configureLoginStack()
         configureLoginButton()
         configureRegisterButton()
     }
     
-    
-    private func configureAvatar() {
-        view.addSubview(avatarView)
+    private func configureLoginStack() {
+        view.addSubview(loginStack)
+        loginStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            avatarView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -160),
-            avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            avatarView.widthAnchor.constraint(equalToConstant: 160),
-            avatarView.heightAnchor.constraint(equalToConstant: 160),
-        ])
-    }
-    
-    private func configureUserName() {
-        view.addSubview(userName)
+            loginStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loginStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loginStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            loginStack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
         
-        NSLayoutConstraint.activate([
-            userName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 30),
-            userName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            userName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            userName.heightAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
-    private func configurePassword() {
-        view.addSubview(password)
-        
-        NSLayoutConstraint.activate([
-            password.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 20),
-            password.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            password.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            password.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     private func configureLoginButton() {
-        view.addSubview(loginButton)
-        
-        NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 30),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
     }
     
     private func configureRegisterButton() {
-        view.addSubview(registerButton)
-        
-        NSLayoutConstraint.activate([
-            registerButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            registerButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
     
