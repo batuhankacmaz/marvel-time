@@ -14,8 +14,7 @@ class RegisterViewController: UIViewController {
     private let avatarView:  UIImageView = {
         
         let image = UIImageView(image: UIImage(named: "spiderman"))
-        image.contentMode = .scaleAspectFill
-        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
         
         return image
     }()
@@ -25,7 +24,6 @@ class RegisterViewController: UIViewController {
         let textField = MTIconWithTextField()
         let viewModel = MTIconWithTextFieldViewModel(icon: "person.fill", placeholder: "Enter your username")
         textField.configure(with: viewModel)
-        textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
     }()
@@ -35,7 +33,6 @@ class RegisterViewController: UIViewController {
         let textField = MTIconWithTextField()
         let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password", isPassword: true)
         textField.configure(with: viewModel)
-        textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
     }()
@@ -45,7 +42,6 @@ class RegisterViewController: UIViewController {
         let textField = MTIconWithTextField()
         let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password again", isPassword: true)
         textField.configure(with: viewModel)
-        textField.translatesAutoresizingMaskIntoConstraints = false
         
         return textField
     }()
@@ -56,9 +52,27 @@ class RegisterViewController: UIViewController {
         button.backgroundColor = UIColor(named: "DarkYellow")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8.0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return button
+    }()
+    
+    lazy var textFieldStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 40.0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.addSubviews([userName, password, repassword])
+        return stackView
+    }()
+    
+    lazy var registerStack: UIStackView = {
+       let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 60.0
+        stackView.distribution = .equalCentering
+        stackView.addSubviews([ avatarView, textFieldStack, registerButton])
+        return stackView
     }()
     
     override func viewDidLoad() {
@@ -78,71 +92,25 @@ class RegisterViewController: UIViewController {
     }
     
     private func configureUI() {
-        configureAvatar()
-        configureUserName()
-        configurePassword()
-        configureRePassword()
+        configureRegisterStack()
         configureRegisterButton()
         
     }
     
-
-    private func configureAvatar() {
-        view.addSubview(avatarView)
+    private func configureRegisterStack() {
+        view.addSubview(registerStack)
+        registerStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            avatarView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -160),
-            avatarView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            avatarView.widthAnchor.constraint(equalToConstant: 160),
-            avatarView.heightAnchor.constraint(equalToConstant: 160),
-        ])
+            registerStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            registerStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            registerStack.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            registerStack.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
         
-    }
-    
-    private func configureUserName() {
-        view.addSubview(userName)
-        
-        NSLayoutConstraint.activate([
-            userName.topAnchor.constraint(equalTo: avatarView.bottomAnchor, constant: 30),
-            userName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            userName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            userName.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-    private func configurePassword() {
-        view.addSubview(password)
-        
-        NSLayoutConstraint.activate([
-            password.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 20),
-            password.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            password.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            password.heightAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
-    private func configureRePassword() {
-        view.addSubview(repassword)
-        
-        NSLayoutConstraint.activate([
-            repassword.topAnchor.constraint(equalTo: password.bottomAnchor, constant: 20),
-            repassword.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            repassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            repassword.heightAnchor.constraint(equalToConstant: 60)
-        ])
-    }
-    
     
     private func configureRegisterButton() {
-        view.addSubview(registerButton)
-        
-        NSLayoutConstraint.activate([
-            registerButton.topAnchor.constraint(equalTo: repassword.bottomAnchor, constant: 30),
-            registerButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
-            registerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-            registerButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
     
