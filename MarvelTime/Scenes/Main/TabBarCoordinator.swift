@@ -42,6 +42,8 @@ class TabBarCoordinator: NSObject, Coordinator {
         tabBarController.delegate = self
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex = TabBarPage.home.pageOrderNumber()
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.backgroundColor = UIColor(named: "DarkGray")
         tabBarController.tabBar.barTintColor = UIColor(named: "DarkGray")
         tabBarController.tabBar.tintColor = UIColor(named: "DarkYellow")
         navigationController.viewControllers = [tabBarController]

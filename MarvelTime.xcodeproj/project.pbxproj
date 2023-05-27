@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C51D393C2A1EA77A006F69DA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D393B2A1EA77A006F69DA /* Keys.swift */; };
 		C51D393E2A1EAB62006F69DA /* UIStackView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D393D2A1EAB62006F69DA /* UIStackView-Extension.swift */; };
+		C5200AFA2A22AA0600962682 /* MTModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AF92A22AA0600962682 /* MTModalView.swift */; };
+		C5200AFC2A22AA6400962682 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AFB2A22AA6400962682 /* UIView-Extension.swift */; };
+		C5200AFE2A22AADE00962682 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AFD2A22AADE00962682 /* Keys.swift */; };
 		C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559141F29F1575C0025BB92 /* UIImage-Extension.swift */; };
 		C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */; };
 		C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */; };
@@ -55,8 +57,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C51D393B2A1EA77A006F69DA /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C51D393D2A1EAB62006F69DA /* UIStackView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView-Extension.swift"; sourceTree = "<group>"; };
+		C5200AF92A22AA0600962682 /* MTModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTModalView.swift; sourceTree = "<group>"; };
+		C5200AFB2A22AA6400962682 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
+		C5200AFD2A22AADE00962682 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		C559141F29F1575C0025BB92 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 				C5EE0CED29F2914100C203FC /* Date-Extension.swift */,
 				C5CEBF5829F81DB000330A49 /* UISearchBar-Extension.swift */,
 				C51D393D2A1EAB62006F69DA /* UIStackView-Extension.swift */,
+				C5200AFB2A22AA6400962682 /* UIView-Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				C5CEBF4D29F683BF00330A49 /* MTNavigationBarTitle.swift */,
 				C5CEBF4F29F688EA00330A49 /* MTNavigationBarAvatar.swift */,
 				C5CEBF5329F7DE3B00330A49 /* MTPaddingLabel.swift */,
+				C5200AF92A22AA0600962682 /* MTModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,7 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				C5EE0CE729F2858800C203FC /* Constants.swift */,
-				C51D393B2A1EA77A006F69DA /* Keys.swift */,
+				C5200AFD2A22AADE00962682 /* Keys.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -399,10 +405,11 @@
 				C5EE0CE829F2858800C203FC /* Constants.swift in Sources */,
 				C5B2DB2829E5DF1800A63AE9 /* TabBarCoordinator.swift in Sources */,
 				C51D393E2A1EAB62006F69DA /* UIStackView-Extension.swift in Sources */,
+				C5200AFC2A22AA6400962682 /* UIView-Extension.swift in Sources */,
 				C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */,
 				C5B2DB1F29E5D5AA00A63AE9 /* LoginCoordinatorProtocol.swift in Sources */,
 				C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */,
-				C51D393C2A1EA77A006F69DA /* Keys.swift in Sources */,
+				C5200AFA2A22AA0600962682 /* MTModalView.swift in Sources */,
 				C5EE0CE129F2749C00C203FC /* APICaller.swift in Sources */,
 				C5CEBF4A29F678C000330A49 /* MTComicTableViewCell.swift in Sources */,
 				C5B2DB3729E6F55600A63AE9 /* HomeViewController.swift in Sources */,
@@ -423,6 +430,7 @@
 				C5EE0CEE29F2914100C203FC /* Date-Extension.swift in Sources */,
 				C5CEBF5229F7B6B600330A49 /* MTCharacterViewModel.swift in Sources */,
 				C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */,
+				C5200AFE2A22AADE00962682 /* Keys.swift in Sources */,
 				C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */,
 				C5B2DB2129E5D5FE00A63AE9 /* LoginCoordinator.swift in Sources */,
 				C5B2DB1D29E5D27D00A63AE9 /* LoginViewController.swift in Sources */,

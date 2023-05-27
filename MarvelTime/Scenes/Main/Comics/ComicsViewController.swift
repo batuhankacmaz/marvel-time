@@ -10,11 +10,51 @@ import UIKit
 class ComicsViewController: UIViewController {
     
     var didSendEventClosure: ((ComicsViewController.Event) -> Void)?
+    var stepperValue: UInt = 2 {
+        didSet {
+            heroCount.text = "\(stepperValue)"
+        }
+    }
     
     private let navigationBarTitle = MTNavigationBarTitle(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
     
     private let navigationBarAvatar = MTNavigationBarAvatar(frame: CGRect(x: 0, y: 0, width: 32, height: 32), avatarName: "wolverine", size: 32)
     
+    private var modalView: MTModalView?
+    
+    private let heroLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hero Count"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let heroCount: UILabel = {
+        let label = UILabel()
+        label.text = "2"
+        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.textColor = .white
+        return label
+    }()
+    
+    private let heroLabelView = UIView()
+    private let heroCountView = UIView()
+    
+    private let heroStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    private let buttonStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10.0
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
     
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -22,7 +62,9 @@ class ComicsViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.searchBarStyle = .minimal
         searchController.searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchController.searchBar.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+        searchController.searchBar.showsBookmarkButton = true
+        
+        searchController.searchBar.setImage(UIImage(systemName: "gearshape.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .bookmark, state: .normal)
         return searchController
     }()
     
@@ -44,6 +86,43 @@ class ComicsViewController: UIViewController {
         return button
     }()
     
+    private let plusButton: UIButton  = {
+        let button = UIButton(type: .system)
+        button.layer.borderWidth = 1
+        button.backgroundColor = UIColor.white
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.cornerRadius = 10
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.tintColor = UIColor(named: "DarkGray")
+       
+        return button
+    }()
+    
+    private let minusButton: UIButton  = {
+        let button = UIButton(type: .system)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = UIColor.white
+        button.layer.cornerRadius = 10
+        button.setTitle("", for: .normal)
+        button.setImage(UIImage(systemName: "minus"), for: .normal)
+        button.tintColor = UIColor(named: "DarkGray")
+        return button
+    }()
+    
+    private let closeButton: UIButton  = {
+        let button = UIButton(type: .system)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        button.backgroundColor = UIColor.white
+        button.layer.cornerRadius = 10
+        button.setTitle("Close", for: .normal)
+        button.tintColor = UIColor(named: "DarkGray")
+        return button
+    }()
+
+    
     private let comicsTable: UITableView = {
         
         let table = UITableView(frame: .zero, style: .grouped)
@@ -62,17 +141,14 @@ class ComicsViewController: UIViewController {
         comicsTable.delegate = self
         comicsTable.dataSource = self
         navigationItem.searchController = searchController
-        
-        
-        
+        searchController.searchBar.delegate = self
         
         configureUI()
+      
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // comicsTable.frame = view.bounds.inset(by: UIEdgeInsets(top: 100, left: 12, bottom: 0, right: 12))
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,14 +158,36 @@ class ComicsViewController: UIViewController {
         searchController.searchBar.setLeftEmpty()
     }
     
+    @objc private func didTapPlus() {
+        if stepperValue < 6 {
+            stepperValue += 1
+        }
+        
+    }
+    
+    @objc private func didTapMinus() {
+        if stepperValue > 1 {
+            stepperValue -= 1
+        }
+    }
+    
+    @objc private func didTapClose() {
+        modalView?.removeFromSuperview()
+    }
+    
+    
     private func configureUI() {
         configureNavbar()
         configureSearchContainerView()
-        
         configureSearchController()
-       
         configureComicsTable()
-       
+        configureHeroStackView()
+        configureHeroLabel()
+        configureHeroCount()
+        configureButtonStackView()
+        configurePlusButton()
+        configureMinusButton()
+        configureCloseButton()
     }
     
     private func configureNavbar() {
@@ -124,8 +222,9 @@ class ComicsViewController: UIViewController {
         NSLayoutConstraint.activate([
             searchController.searchBar.topAnchor.constraint(equalTo: searchContainerView.topAnchor),
             searchController.searchBar.leadingAnchor.constraint(equalTo: searchContainerView.leadingAnchor),
-            searchController.searchBar.trailingAnchor.constraint(equalTo: searchContainerView.trailingAnchor),
-            searchController.searchBar.bottomAnchor.constraint(equalTo: searchContainerView.bottomAnchor)
+            searchController.searchBar.trailingAnchor.constraint(equalTo: searchContainerView.trailingAnchor, constant: -100),
+            searchController.searchBar.bottomAnchor.constraint(equalTo: searchContainerView.bottomAnchor),
+            
         ])
     }
     
@@ -149,6 +248,34 @@ class ComicsViewController: UIViewController {
             comicsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
             comicsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    private func configureHeroLabel() {
+        heroLabel.centerSuperView(parentView: heroLabelView)
+    }
+    
+    private func configureHeroCount() {
+        heroCount.centerSuperView(parentView: heroCountView)
+    }
+    
+    private func configurePlusButton() {
+        plusButton.addTarget(self, action: #selector(didTapPlus), for: .touchUpInside)
+    }
+    
+    private func configureHeroStackView() {
+        heroStackView.addSubviews([heroLabelView, heroCountView])
+    }
+    
+    private func configureButtonStackView() {
+        buttonStackView.addSubviews([minusButton, plusButton])
+    }
+    
+    private func configureMinusButton() {
+        minusButton.addTarget(self, action: #selector(didTapMinus), for: .touchUpInside)
+    }
+    
+    private func configureCloseButton() {
+        closeButton.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
     }
     
     
@@ -195,4 +322,19 @@ extension ComicsViewController: UITableViewDataSource {
 
 extension ComicsViewController: UITableViewDelegate {
     
+}
+
+//MARK: - UISearchbarDelegate
+
+extension ComicsViewController: UISearchBarDelegate {
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        modalView = MTModalView(frame: view.bounds)
+        
+        modalView?.addCustomSubview([heroStackView, buttonStackView, closeButton])
+        view.addSubview(modalView!)
+    }
+    
+    @objc private func stepperValueChanged(sender: UIStepper) {
+        // stepperValue = sender.value
+    }
 }
