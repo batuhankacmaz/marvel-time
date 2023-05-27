@@ -97,10 +97,19 @@ class LoginViewController: UIViewController {
         self.navigationItem.backButtonTitle = "Login"
         self.hideKeyboardWhenTappedAround()
         
+        
+        
         configureUI()
+        animatedAppear()
         userName.delegate = self
         password.delegate = self
-      
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        initialLocation()
+        super.viewWillAppear(animated)
+        
     }
     
     deinit {
@@ -111,6 +120,25 @@ class LoginViewController: UIViewController {
         configureLoginStack()
         configureLoginButton()
         configureRegisterButton()
+    }
+    
+    private func initialLocation() {
+        avatarView.center.x -= view.bounds.width
+        textFieldStack.center.x -= view.bounds.width
+        buttonStack.center.y += view.bounds.height
+    
+    }
+    
+    private func animatedAppear() {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut]) {
+            self.avatarView.center.x += self.view.bounds.width
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.3, options: [.curveEaseOut]) {
+            self.textFieldStack.center.x += self.view.bounds.width
+        }
+        UIView.animate(withDuration: 1, delay: 0.8, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.3) {
+            self.buttonStack.center.y -= self.view.bounds.height
+        }
     }
     
     private func configureLoginStack() {
