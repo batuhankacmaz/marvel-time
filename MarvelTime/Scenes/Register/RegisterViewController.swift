@@ -19,32 +19,12 @@ class RegisterViewController: UIViewController {
         return image
     }()
     
-    private let userName: MTIconWithTextField = {
-        
-        let textField = MTIconWithTextField()
-        let viewModel = MTIconWithTextFieldViewModel(icon: "person.fill", placeholder: "Enter your username")
-        textField.configure(with: viewModel)
-        
-        return textField
-    }()
+    private let userName = MTIconWithTextField(icon: Icon.username.toImage(), placeholder: PlaceHolder.username.rawValue)
     
-    private let password: MTIconWithTextField = {
-        
-        let textField = MTIconWithTextField()
-        let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password", isPassword: true)
-        textField.configure(with: viewModel)
-        
-        return textField
-    }()
+    private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, isPassword: true)
     
-    private let repassword: MTIconWithTextField = {
-        
-        let textField = MTIconWithTextField()
-        let viewModel = MTIconWithTextFieldViewModel(icon: "lock.fill", placeholder: "Enter your password again", isPassword: true)
-        textField.configure(with: viewModel)
-        
-        return textField
-    }()
+    private let repassword = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.repassword.rawValue, isPassword: true)
+    
     private let registerButton: UIButton = {
         
         let button = UIButton()
@@ -59,7 +39,7 @@ class RegisterViewController: UIViewController {
     lazy var textFieldStack: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 40.0
+        stackView.spacing = 10.0
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.addSubviews([userName, password, repassword])
@@ -125,26 +105,19 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     enum Event {
+        case login
         case register
     }
 }
 
 
 extension RegisterViewController: MTIconWithTextFieldDelegate {
-    func textDidChange(text: String?) {
-        print(text ?? "")
+    func textDidChange(text: String, type: MTIconWithTextFieldType) {
+        print("textChange", text)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        print("Begin editing")
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        print("DidEndEditing")
-    }
-    
-    func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) {
-        print("Textfield")
+    func textFieldDidEndEditing(text: String, type: MTIconWithTextFieldType) {
+        print("textEnd", text)
     }
     
     
