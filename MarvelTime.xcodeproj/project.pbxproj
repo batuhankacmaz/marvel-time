@@ -11,6 +11,9 @@
 		C5200AFA2A22AA0600962682 /* MTModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AF92A22AA0600962682 /* MTModalView.swift */; };
 		C5200AFC2A22AA6400962682 /* UIView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AFB2A22AA6400962682 /* UIView-Extension.swift */; };
 		C5200AFE2A22AADE00962682 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5200AFD2A22AADE00962682 /* Keys.swift */; };
+		C529B6382A4856A400493FC9 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6372A4856A400493FC9 /* LoginViewModel.swift */; };
+		C529B63A2A48585600493FC9 /* LoginViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6392A48585600493FC9 /* LoginViewModelProtocols.swift */; };
+		C529B63D2A4A17AE00493FC9 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C529B63C2A4A17AE00493FC9 /* SDWebImage */; };
 		C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559141F29F1575C0025BB92 /* UIImage-Extension.swift */; };
 		C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */; };
 		C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */; };
@@ -40,8 +43,9 @@
 		C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */; };
 		C5B2DB4A29E9498300A63AE9 /* MTIconWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */; };
 		C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */; };
+		C5BD30042A3F944F00C1439A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD30032A3F944F00C1439A /* HomeViewModel.swift */; };
+		C5BD30062A3F979300C1439A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD30052A3F979300C1439A /* Protocols.swift */; };
 		C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */; };
-		C5CEBF4429F54A6600330A49 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C5CEBF4329F54A6600330A49 /* SDWebImage */; };
 		C5CEBF4829F5586B00330A49 /* MTCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4729F5586B00330A49 /* MTCharacter.swift */; };
 		C5CEBF4A29F678C000330A49 /* MTComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4929F678C000330A49 /* MTComicTableViewCell.swift */; };
 		C5CEBF4E29F683BF00330A49 /* MTNavigationBarTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4D29F683BF00330A49 /* MTNavigationBarTitle.swift */; };
@@ -61,6 +65,8 @@
 		C5200AF92A22AA0600962682 /* MTModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTModalView.swift; sourceTree = "<group>"; };
 		C5200AFB2A22AA6400962682 /* UIView-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-Extension.swift"; sourceTree = "<group>"; };
 		C5200AFD2A22AADE00962682 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C529B6372A4856A400493FC9 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C529B6392A48585600493FC9 /* LoginViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelProtocols.swift; sourceTree = "<group>"; };
 		C559141F29F1575C0025BB92 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinatorProtocol.swift; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 		C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTIconWithTextField.swift; sourceTree = "<group>"; };
 		C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		C5BD30032A3F944F00C1439A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C5BD30052A3F979300C1439A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTComicCollectionViewCell.swift; sourceTree = "<group>"; };
 		C5CEBF4729F5586B00330A49 /* MTCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCharacter.swift; sourceTree = "<group>"; };
 		C5CEBF4929F678C000330A49 /* MTComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTComicTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,16 +120,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5CEBF4429F54A6600330A49 /* SDWebImage in Frameworks */,
+				C529B63D2A4A17AE00493FC9 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C529B6352A47769700493FC9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C529B6362A47769B00493FC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C529B6372A4856A400493FC9 /* LoginViewModel.swift */,
+				C529B6392A48585600493FC9 /* LoginViewModelProtocols.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C559142129F16AAD0025BB92 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C5BD30022A3F942400C1439A /* Models */,
+				C5BD30012A3F941600C1439A /* ViewModel */,
 				C5B2DB3629E6F55600A63AE9 /* HomeViewController.swift */,
 				C5B2DB3829E6F56500A63AE9 /* HomeCoordinator.swift */,
 			);
@@ -215,6 +241,8 @@
 		C5B2DB1B29E5D25E00A63AE9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C529B6362A47769B00493FC9 /* ViewModel */,
+				C529B6352A47769700493FC9 /* Models */,
 				C5B2DB1C29E5D27D00A63AE9 /* LoginViewController.swift */,
 				C5B2DB2029E5D5FE00A63AE9 /* LoginCoordinator.swift */,
 			);
@@ -273,6 +301,22 @@
 				C5200AF92A22AA0600962682 /* MTModalView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C5BD30012A3F941600C1439A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5BD30032A3F944F00C1439A /* HomeViewModel.swift */,
+				C5BD30052A3F979300C1439A /* Protocols.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C5BD30022A3F942400C1439A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C5CEBF4529F557A700330A49 /* Models */ = {
@@ -334,7 +378,7 @@
 			);
 			name = MarvelTime;
 			packageProductDependencies = (
-				C5CEBF4329F54A6600330A49 /* SDWebImage */,
+				C529B63C2A4A17AE00493FC9 /* SDWebImage */,
 			);
 			productName = MarvelTime;
 			productReference = C5A0C2D029E066DE00DB21DA /* MarvelTime.app */;
@@ -365,7 +409,7 @@
 			);
 			mainGroup = C5A0C2C729E066DD00DB21DA;
 			packageReferences = (
-				C5CEBF4229F54A6600330A49 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C529B63B2A4A17AE00493FC9 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = C5A0C2D129E066DE00DB21DA /* Products */;
 			projectDirPath = "";
@@ -394,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5B2DB3929E6F56500A63AE9 /* HomeCoordinator.swift in Sources */,
+				C5BD30062A3F979300C1439A /* Protocols.swift in Sources */,
 				C5B2DB1729E5CF2900A63AE9 /* AppCoordinatorProtocol.swift in Sources */,
 				C5B2DB1529E5CE0C00A63AE9 /* Coordinator-Extension.swift in Sources */,
 				C5B2DB0F29E5C4C600A63AE9 /* AppCoordinator.swift in Sources */,
@@ -410,6 +455,7 @@
 				C5B2DB1F29E5D5AA00A63AE9 /* LoginCoordinatorProtocol.swift in Sources */,
 				C5F6844029EDA59E00697655 /* UIViewController-Extension.swift in Sources */,
 				C5200AFA2A22AA0600962682 /* MTModalView.swift in Sources */,
+				C529B63A2A48585600493FC9 /* LoginViewModelProtocols.swift in Sources */,
 				C5EE0CE129F2749C00C203FC /* APICaller.swift in Sources */,
 				C5CEBF4A29F678C000330A49 /* MTComicTableViewCell.swift in Sources */,
 				C5B2DB3729E6F55600A63AE9 /* HomeViewController.swift in Sources */,
@@ -419,8 +465,10 @@
 				C5B2DB3529E6F54900A63AE9 /* ComicsViewController.swift in Sources */,
 				C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */,
 				C5EE0CDE29F1C69B00C203FC /* String-Extension.swift in Sources */,
+				C529B6382A4856A400493FC9 /* LoginViewModel.swift in Sources */,
 				C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */,
 				C5CEBF4829F5586B00330A49 /* MTCharacter.swift in Sources */,
+				C5BD30042A3F944F00C1439A /* HomeViewModel.swift in Sources */,
 				C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */,
 				C5B2DB2429E5D94A00A63AE9 /* TabBarCoordinatorModel.swift in Sources */,
 				C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */,
@@ -648,7 +696,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C5CEBF4229F54A6600330A49 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		C529B63B2A4A17AE00493FC9 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
 			requirement = {
@@ -659,9 +707,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C5CEBF4329F54A6600330A49 /* SDWebImage */ = {
+		C529B63C2A4A17AE00493FC9 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C5CEBF4229F54A6600330A49 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			package = C529B63B2A4A17AE00493FC9 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */

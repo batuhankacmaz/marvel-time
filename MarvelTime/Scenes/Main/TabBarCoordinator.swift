@@ -8,6 +8,8 @@
 import UIKit
 
 class TabBarCoordinator: NSObject, Coordinator {
+    var rootViewController: UIViewController?
+    
     weak var finishDelegate: CoordinatorFinishDelegate?
     
     var childCoordinators = [Coordinator]()
