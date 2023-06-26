@@ -14,6 +14,8 @@ protocol ComicsCoordinatorProtocol: Coordinator {
 
 
 class ComicsCoordinator: ComicsCoordinatorProtocol {
+    var rootViewController: UIViewController?
+    
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     

@@ -15,6 +15,8 @@ protocol HomeCoordinatorProtocol: Coordinator {
 
 
 class HomeCoordinator: HomeCoordinatorProtocol {
+    var rootViewController: UIViewController?
+    
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     

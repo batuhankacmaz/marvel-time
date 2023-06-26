@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
+    var rootViewController: UIViewController?
+    
     func coordinatorDidFinish(childCoordinator: Coordinator) {
         childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
         
@@ -45,7 +47,7 @@ class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
     
     func showLoginViewController() {
         let loginVC = LoginViewController()
-        
+        self.rootViewController = loginVC
         loginVC.didSendEventClosure = { [weak self] event in
             switch event {
             case  .login:
@@ -55,16 +57,15 @@ class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
             }
             
         }
-        
         navigationController.pushViewController(loginVC, animated: true)
         
         
     }
     
     func showRegisterViewController() {
-        let registerCoordinator = RegisterCoordinator(navigationController)
-        registerCoordinator.finishDelegate = self
-        registerCoordinator.start()
-        childCoordinators.append(registerCoordinator)
+        let registerVC = RegisterViewController()
+       
+       
+        navigationController.pushViewController(registerVC, animated: true)
     }
 }

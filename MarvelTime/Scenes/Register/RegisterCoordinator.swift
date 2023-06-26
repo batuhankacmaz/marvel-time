@@ -8,6 +8,8 @@
 import UIKit
 
 class RegisterCoordinator: RegisterCoordinatorProtocol {
+    var rootViewController: UIViewController?
+    
   
     
     weak var finishDelegate: CoordinatorFinishDelegate?

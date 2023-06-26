@@ -14,6 +14,8 @@ protocol FavoritesCoordinatorProtocol: Coordinator {
 
 
 class FavoritesCoordinator: FavoritesCoordinatorProtocol {
+    var rootViewController: UIViewController?
+    
     
     weak var finishDelegate: CoordinatorFinishDelegate?
     

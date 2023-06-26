@@ -12,6 +12,7 @@ import UIKit
 //MARK: - Coordinator
 protocol Coordinator: AnyObject {
     var finishDelegate: CoordinatorFinishDelegate? { get set }
+    var rootViewController: UIViewController? { get set }
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set}
     var type: CoordinatorType { get }
@@ -27,4 +28,12 @@ protocol Coordinator: AnyObject {
 
 enum CoordinatorType {
     case app, login, register, tab
+}
+
+extension Coordinator {
+
+
+    func popBack(animated: Bool = true) {
+        self.navigationController.popViewController(animated: animated)
+    }
 }
