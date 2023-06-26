@@ -8,6 +8,8 @@
 import UIKit
 
 class AppCoordinator: AppCoordinatorProtocol {
+    var rootViewController: UIViewController?
+    
     weak var finishDelegate: CoordinatorFinishDelegate? = nil
     
     var navigationController: UINavigationController
@@ -23,7 +25,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
-        showMainFlow()
+        showLoginFlow()
     }
     
     func showLoginFlow() {
