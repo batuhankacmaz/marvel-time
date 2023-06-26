@@ -7,30 +7,28 @@
 
 import UIKit
 
-struct MTIconWithTextFieldViewModel {
-    let icon: String
-    let placeholder: String
-    var isPassword: Bool? = false
+protocol MTIconWithTextFieldDelegate: AnyObject {
+    func textDidChange(text: String, type: MTIconWithTextFieldType)
+    func textFieldDidEndEditing(text: String, type: MTIconWithTextFieldType)
 }
 
-protocol MTIconWithTextFieldDelegate: AnyObject {
-    func textDidChange(text: String?)
-    func textFieldDidBeginEditing(textField: UITextField)
-    func textFieldDidEndEditing(textField: UITextField)
-    func textField(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String)
+enum MTIconWithTextFieldType {
+    case username
+    case password
 }
 
 class MTIconWithTextField: UIView {
     
     weak var delegate: MTIconWithTextFieldDelegate?
-    
+    private var type: MTIconWithTextFieldType = .username
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.tintColor = UIColor(named: "DarkYellow")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    let textField: PaddedTextField = {
+    let textField: UITextField = {
         let textField = PaddedTextField()
         textField.backgroundColor = UIColor.white
         textField.layer.cornerRadius = 12.0
@@ -41,8 +39,16 @@ class MTIconWithTextField: UIView {
         return textField
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)        
+    init(icon: UIImage, placeholder: String, isPassword: Bool = false) {
+        super.init(frame: .zero)
+        iconImageView.image = icon
+        
+        textField.placeholder = placeholder
+        self.type = isPassword ? .password : .username
+        textField.isSecureTextEntry = isPassword
+        configureUI()
+        
+        print("initialize")
     }
     
     required init(coder: NSCoder) {
@@ -51,26 +57,17 @@ class MTIconWithTextField: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        configureUI()
-    }
-    
-    func configure(with viewModel: MTIconWithTextFieldViewModel) {
-        iconImageView.image = UIImage(systemName: viewModel.icon)?.withTintColor(UIColor(named: "DarkYellow")!, renderingMode: .alwaysOriginal)
-        textField.placeholder = viewModel.placeholder
-        if let isPassword = viewModel.isPassword {
-            textField.isSecureTextEntry = isPassword
-        }
-        
         
         
     }
     
-    func configureUI() {
+    private func configureUI() {
         configureImage()
         configureTextField()
+        configureSelf()
     }
     
-    func configureImage() {
+    private func configureImage() {
         addSubview(iconImageView)
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -80,40 +77,49 @@ class MTIconWithTextField: UIView {
         ])
     }
     
-    func configureTextField() {
+    private func configureTextField() {
         addSubview(textField)
-        
+        textField.delegate = self
         NSLayoutConstraint.activate([
             textField.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
             textField.centerYAnchor.constraint(equalTo: centerYAnchor),
             textField.heightAnchor.constraint(equalToConstant: 30)
         ])
-        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        delegate?.textDidChange(text: textField.text)
+    private func configureSelf() {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: leadingAnchor),
+            trailingAnchor.constraint(equalTo: trailingAnchor),
+            centerYAnchor.constraint(equalTo: centerYAnchor),
+            heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
+    
+  
+    
 }
 
 
 //MARK: - UITextFieldDelegate
 
 extension MTIconWithTextField: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        delegate?.textFieldDidBeginEditing(textField: textField)
-    }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        delegate?.textFieldDidEndEditing(textField: textField)
+        delegate?.textFieldDidEndEditing(text: textField.text!, type: type)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        delegate?.textField(textField: textField, shouldChangeCharactersIn: range, replacementString: string)
-        return true
+        if let text = textField.text, let textRange = Range(range, in: text) {
+                let updatedText = text.replacingCharacters(in: textRange, with: string)
+            delegate?.textDidChange(text: updatedText, type: type)
+            }
+            
+            // Return true to allow the text change or false to reject it if needed
+            return true
     }
+    
 }
 
 class PaddedTextField: UITextField {
