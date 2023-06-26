@@ -92,11 +92,7 @@ extension HomeViewController {
         case comics
     }
     
-    enum Sections: Int {
-        case YourNewIssues = 0
-        case Previews = 1
-        case BasedOnYourPreferences = 2
-    }
+   
 }
 
 //MARK: - UITableViewDataSource
