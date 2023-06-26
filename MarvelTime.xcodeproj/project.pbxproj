@@ -19,7 +19,6 @@
 		C57BDD3D29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57BDD3C29EDAF7500A45B5E /* RegisterCoordinatorProtocol.swift */; };
 		C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */; };
 		C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D529E066DE00DB21DA /* SceneDelegate.swift */; };
-		C5A0C2D829E066DE00DB21DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D729E066DE00DB21DA /* ViewController.swift */; };
 		C5A0C2DD29E066DE00DB21DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */; };
 		C5A0C2E029E066DE00DB21DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */; };
 		C5B2DB0C29E5C2D400A63AE9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB0B29E5C2D400A63AE9 /* Coordinator.swift */; };
@@ -73,7 +72,6 @@
 		C5A0C2D029E066DE00DB21DA /* MarvelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5A0C2D529E066DE00DB21DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C5A0C2D729E066DE00DB21DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5A0C2DF29E066DE00DB21DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C5A0C2E129E066DE00DB21DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -143,6 +141,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C529B63E2A4A21C000493FC9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C5200AF92A22AA0600962682 /* MTModalView.swift */,
+				C5CEBF4F29F688EA00330A49 /* MTNavigationBarAvatar.swift */,
+				C5CEBF4929F678C000330A49 /* MTComicTableViewCell.swift */,
+				C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */,
+				C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C559142129F16AAD0025BB92 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,11 +187,8 @@
 				C5F6843E29EDA37500697655 /* Helpers */,
 				C5EE0CE229F279F600C203FC /* Resources */,
 				C5B2DB0D29E5C44500A63AE9 /* App */,
-				C5CEBF4529F557A700330A49 /* Models */,
 				C5B2DB4829E9485A00A63AE9 /* Views */,
-				C5CEBF4629F557B300330A49 /* ViewModels */,
 				C5B2DB1A29E5D24E00A63AE9 /* Scenes */,
-				C5A0C2D729E066DE00DB21DA /* ViewController.swift */,
 				C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */,
 				C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */,
 				C5A0C2E129E066DE00DB21DA /* Info.plist */,
@@ -252,6 +259,9 @@
 		C5B2DB2229E5D90F00A63AE9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C5CEBF4529F557A700330A49 /* Models */,
+				C5CEBF4629F557B300330A49 /* ViewModels */,
+				C529B63E2A4A21C000493FC9 /* Views */,
 				C559142129F16AAD0025BB92 /* Home */,
 				C5B2DB2B29E6F4FC00A63AE9 /* Comics */,
 				C5B2DB2A29E6F4EE00A63AE9 /* Favorites */,
@@ -292,13 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */,
-				C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */,
-				C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */,
-				C5CEBF4929F678C000330A49 /* MTComicTableViewCell.swift */,
 				C5CEBF4D29F683BF00330A49 /* MTNavigationBarTitle.swift */,
-				C5CEBF4F29F688EA00330A49 /* MTNavigationBarAvatar.swift */,
 				C5CEBF5329F7DE3B00330A49 /* MTPaddingLabel.swift */,
-				C5200AF92A22AA0600962682 /* MTModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -444,7 +449,6 @@
 				C5B2DB0F29E5C4C600A63AE9 /* AppCoordinator.swift in Sources */,
 				C5B2DB1929E5D0C900A63AE9 /* AppCoordinator-Extension.swift in Sources */,
 				C5B2DB2629E5DE5500A63AE9 /* TabBarCoordinatorProtocol.swift in Sources */,
-				C5A0C2D829E066DE00DB21DA /* ViewController.swift in Sources */,
 				C5B2DB3329E6F53D00A63AE9 /* ComicsCoordinator.swift in Sources */,
 				C5B2DB4A29E9498300A63AE9 /* MTIconWithTextField.swift in Sources */,
 				C5EE0CE829F2858800C203FC /* Constants.swift in Sources */,
