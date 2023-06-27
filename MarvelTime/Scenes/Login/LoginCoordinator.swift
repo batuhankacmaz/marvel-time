@@ -36,11 +36,6 @@ class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
         self.navigationController = navigationController
     }
     
-    deinit {
-        print("LoginCoordinator deinit")
-        
-    }
-    
     func start() {
         showLoginViewController()
     }
@@ -64,8 +59,14 @@ class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
     
     func showRegisterViewController() {
         let registerVC = RegisterViewController()
-       
-       
+        registerVC.didSendEventClosure = { [weak self] event in
+            switch event {
+            case .register:
+                self?.finish()
+            }
+        }
+                 
         navigationController.pushViewController(registerVC, animated: true)
     }
+    
 }
