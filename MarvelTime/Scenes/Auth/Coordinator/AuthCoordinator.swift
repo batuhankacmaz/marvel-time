@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  AuthCoordinator.swift
 //  MarvelTime
 //
 //  Created by Batuhan Kacmaz on 11.04.2023.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LoginCoordinator: LoginCoordinatorProtocol, CoordinatorFinishDelegate {
+class AuthCoordinator: AuthCoordinatorProtocol, CoordinatorFinishDelegate {
     var rootViewController: UIViewController?
     
     func coordinatorDidFinish(childCoordinator: Coordinator) {

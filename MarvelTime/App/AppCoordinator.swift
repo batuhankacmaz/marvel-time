@@ -30,7 +30,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     
     func showLoginFlow() {
         // Implement Login Flow
-        let loginCoordinator = LoginCoordinator(navigationController)
+        let loginCoordinator = AuthCoordinator(navigationController)
         loginCoordinator.finishDelegate = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)

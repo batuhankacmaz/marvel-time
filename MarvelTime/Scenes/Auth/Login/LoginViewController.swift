@@ -7,21 +7,6 @@
 
 import UIKit
 
-enum Icon: String {
-    case username = "person.fill"
-    case password = "lock.fill"
-    
-    func toImage() -> UIImage {
-        return UIImage(systemName: self.rawValue)!
-    }
-}
-
-enum PlaceHolder: String {
-    case username = "Enter your username"
-    case password = "Enter your password"
-    case repassword = "Enter your password again"
-}
-
 class LoginViewController: UIViewController {
     
     var didSendEventClosure: ((LoginViewController.Event) -> Void)?
