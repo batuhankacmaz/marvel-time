@@ -17,7 +17,7 @@ enum MTIconWithTextFieldType {
     case password
 }
 
-class MTIconWithTextField: UIView {
+final class MTIconWithTextField: UIView {
     
     weak var delegate: MTIconWithTextFieldDelegate?
     private var type: MTIconWithTextFieldType = .username

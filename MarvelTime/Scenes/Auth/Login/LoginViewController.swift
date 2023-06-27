@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
     }
     
     private let avatarView: UIImageView = {
-        
         let image = UIImageView()
         image.image = UIImage(named: "wolverine")
         image.contentMode = .scaleAspectFit
@@ -35,11 +34,8 @@ class LoginViewController: UIViewController {
     
     private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, isPassword: true)
     
-    private let errorLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Wrong username or password"
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor(named: "Red")
+    private let errorLabel: MTErrorLabel = {
+        let label = MTErrorLabel(label: .loginError)
         label.layer.opacity = 0
         return label
     }()
