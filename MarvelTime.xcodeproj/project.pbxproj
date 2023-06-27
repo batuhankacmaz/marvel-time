@@ -41,7 +41,6 @@
 		C5B2DB3929E6F56500A63AE9 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB3829E6F56500A63AE9 /* HomeCoordinator.swift */; };
 		C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */; };
 		C5B2DB4A29E9498300A63AE9 /* MTIconWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */; };
-		C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */; };
 		C5BD30042A3F944F00C1439A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD30032A3F944F00C1439A /* HomeViewModel.swift */; };
 		C5BD30062A3F979300C1439A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD30052A3F979300C1439A /* Protocols.swift */; };
 		C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */; };
@@ -95,7 +94,6 @@
 		C5B2DB3829E6F56500A63AE9 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C5B2DB4929E9498300A63AE9 /* MTIconWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTIconWithTextField.swift; sourceTree = "<group>"; };
-		C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		C5BD30032A3F944F00C1439A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C5BD30052A3F979300C1439A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		C5CEBF4029F5499800330A49 /* MTComicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTComicCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */,
-				C5B2DB4D29E9A36800A63AE9 /* RegisterCoordinator.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 				C5BD30042A3F944F00C1439A /* HomeViewModel.swift in Sources */,
 				C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */,
 				C5B2DB2429E5D94A00A63AE9 /* TabBarCoordinatorModel.swift in Sources */,
-				C5B2DB4E29E9A36800A63AE9 /* RegisterCoordinator.swift in Sources */,
 				C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */,
 				C5B2DB0C29E5C2D400A63AE9 /* Coordinator.swift in Sources */,
 				C5CEBF5429F7DE3B00330A49 /* MTPaddingLabel.swift in Sources */,

@@ -121,21 +121,11 @@ class LoginViewController: UIViewController {
         password.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        initialLocation()
-        super.viewWillAppear(animated)
-        
-    }
-    
-    deinit {
-        print("LoginViewController deinit")
-    }
-    
     private func configureUI() {
         configureLoginStack()
         configureLoginButton()
         configureRegisterButton()
+        initialLocation()
         
     }
     
