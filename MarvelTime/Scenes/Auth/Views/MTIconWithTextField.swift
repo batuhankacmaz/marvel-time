@@ -15,6 +15,7 @@ protocol MTIconWithTextFieldDelegate: AnyObject {
 enum MTIconWithTextFieldType {
     case username
     case password
+    case repassword
 }
 
 final class MTIconWithTextField: UIView {
@@ -39,13 +40,13 @@ final class MTIconWithTextField: UIView {
         return textField
     }()
     
-    init(icon: UIImage, placeholder: String, isPassword: Bool = false) {
+    init(icon: UIImage, placeholder: String, type: MTIconWithTextFieldType) {
         super.init(frame: .zero)
         iconImageView.image = icon
         
         textField.placeholder = placeholder
-        self.type = isPassword ? .password : .username
-        textField.isSecureTextEntry = isPassword
+        self.type = type
+        textField.isSecureTextEntry = type == .password || type == .repassword
         configureUI()
         
         print("initialize")

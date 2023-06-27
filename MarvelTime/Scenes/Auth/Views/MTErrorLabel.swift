@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum ErrorText: String {
+    case loginError = "Wrong username or password"
+    case registerUsernameError = "Username exist"
+    case registerPasswordError = "Password and repassword cant match"
+}
+
 final class MTErrorLabel: UILabel {
     
     init(label: ErrorText) {
@@ -26,9 +32,10 @@ final class MTErrorLabel: UILabel {
 }
 
 extension MTErrorLabel {
-    enum ErrorText: String {
-        case loginError = "Wrong username or password"
-        case registerUsernameError = "Username exist"
-        case registerPasswordError = "Password and repassword cant match"
+    
+    func configureLabel(label: ErrorText) {
+        text = label.rawValue
     }
 }
+
+

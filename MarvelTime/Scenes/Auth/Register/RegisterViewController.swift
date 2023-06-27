@@ -10,6 +10,18 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     var didSendEventClosure: ((RegisterViewController.Event) -> Void)?
+    private var viewModel: RegisterViewModelProtocol! {
+        didSet {
+            viewModel.delegate = self
+        }
+    }
+    
+    private var isRegisterButtonActive: Bool! {
+        didSet {
+            registerButton.backgroundColor = isRegisterButtonActive ? UIColor(named: "DarkYellow") : .gray
+            registerButton.isEnabled = isRegisterButtonActive
+        }
+    }
     
     private let avatarView:  UIImageView = {
         
@@ -19,11 +31,11 @@ class RegisterViewController: UIViewController {
         return image
     }()
     
-    private let userName = MTIconWithTextField(icon: Icon.username.toImage(), placeholder: PlaceHolder.username.rawValue)
+    private let userName = MTIconWithTextField(icon: Icon.username.toImage(), placeholder: PlaceHolder.username.rawValue, type: .username)
     
-    private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, isPassword: true)
+    private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, type: .password)
     
-    private let repassword = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.repassword.rawValue, isPassword: true)
+    private let repassword = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.repassword.rawValue, type: .repassword)
     
     private let registerButton: UIButton = {
         
@@ -36,13 +48,19 @@ class RegisterViewController: UIViewController {
         return button
     }()
     
+    private let errorLabel: MTErrorLabel = {
+        let label = MTErrorLabel(label: .registerUsernameError)
+        label.layer.opacity = 0
+        return label
+    }()
+    
     lazy var textFieldStack: UIStackView = {
        let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10.0
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.addSubviews([userName, password, repassword])
+        stackView.distribution = .equalCentering
+        stackView.addSubviews([userName, password, repassword, errorLabel])
         return stackView
     }()
     
@@ -57,7 +75,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel = RegisterViewModel()
+        isRegisterButtonActive = false
         view.backgroundColor = UIColor(named: "DarkGray")
         self.hideKeyboardWhenTappedAround()
         
@@ -92,8 +111,8 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func didTapRegisterButton() {
-        let registerEvent = Event.register
-        didSendEventClosure?(registerEvent)
+        viewModel.registerUIEvents(.handleRegister)
+   
     }
 
 }
@@ -109,11 +128,35 @@ extension RegisterViewController {
 
 extension RegisterViewController: MTIconWithTextFieldDelegate {
     func textDidChange(text: String, type: MTIconWithTextFieldType) {
-        print("textChange", text)
     }
     
     func textFieldDidEndEditing(text: String, type: MTIconWithTextFieldType) {
-        print("textEnd", text)
+        switch type {
+        case .username:
+            viewModel.registerUIEvents(.handleUsername(username: text))
+        case .password:
+            viewModel.registerUIEvents(.handlePassword(password: text))
+        case .repassword:
+            viewModel.registerUIEvents(.handleRePassword(repassword: text))
+        }
+    }
+
+}
+
+extension RegisterViewController: RegisterViewModelDelegate {
+    func registerViewModelOutputs(_ outputEvent: RegisterViewModelOutput) {
+        switch outputEvent {
+        case .success:
+            let registerEvent = Event.register
+            didSendEventClosure?(registerEvent)
+        case .hasError(let type):
+            guard let guardedType = type else { return errorLabel.layer.opacity = 0 }
+            errorLabel.configureLabel(label: guardedType)
+            errorLabel.layer.opacity = 1.0
+            print("type", guardedType)
+        case .registerButtonActive(let isActive):
+            isRegisterButtonActive = isActive
+        }
     }
     
     

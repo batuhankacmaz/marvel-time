@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var didSendEventClosure: ((LoginViewController.Event) -> Void)?
-    private var isLoginButtonActive = false {
+    private var isLoginButtonActive: Bool! {
         didSet {
             loginButton.backgroundColor = isLoginButtonActive ? UIColor(named: "DarkYellow") : .gray
             loginButton.isEnabled = isLoginButtonActive
@@ -30,9 +30,9 @@ class LoginViewController: UIViewController {
     }()
     
     
-    private let userName = MTIconWithTextField(icon: Icon.username.toImage(), placeholder: PlaceHolder.username.rawValue)
+    private let userName = MTIconWithTextField(icon: Icon.username.toImage(), placeholder: PlaceHolder.username.rawValue, type: .username)
     
-    private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, isPassword: true)
+    private let password = MTIconWithTextField(icon: Icon.password.toImage(), placeholder: PlaceHolder.password.rawValue, type: .password)
     
     private let errorLabel: MTErrorLabel = {
         let label = MTErrorLabel(label: .loginError)
@@ -47,8 +47,7 @@ class LoginViewController: UIViewController {
         button.backgroundColor = .gray
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8.0
-        
-        
+            
         return button
     }()
     
@@ -92,6 +91,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModel()
+        isLoginButtonActive = false
         view.backgroundColor = UIColor(named: "DarkGray")
         self.navigationItem.backButtonTitle = "Login"
         self.hideKeyboardWhenTappedAround()
@@ -184,6 +184,8 @@ extension LoginViewController: MTIconWithTextFieldDelegate {
             viewModel.LoginUIEvents(.handleUsername(username: text))
         case .password:
             viewModel.LoginUIEvents(.handlePassword(password: text))
+        default:
+            fatalError("login has unexpected type")
         }
     }
     

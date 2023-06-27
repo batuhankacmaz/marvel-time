@@ -18,6 +18,8 @@
 		C529B6472A4ADED300493FC9 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6462A4ADED300493FC9 /* Icon.swift */; };
 		C529B6492A4ADEDC00493FC9 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6482A4ADEDC00493FC9 /* Placeholder.swift */; };
 		C529B64C2A4AE00200493FC9 /* MTErrorLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B64B2A4AE00200493FC9 /* MTErrorLabel.swift */; };
+		C529B64F2A4B6FA600493FC9 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B64E2A4B6FA600493FC9 /* RegisterViewModel.swift */; };
+		C529B6512A4B6FD500493FC9 /* RegisterViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6502A4B6FD500493FC9 /* RegisterViewModelProtocols.swift */; };
 		C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559141F29F1575C0025BB92 /* UIImage-Extension.swift */; };
 		C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */; };
 		C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		C529B6462A4ADED300493FC9 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		C529B6482A4ADEDC00493FC9 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		C529B64B2A4AE00200493FC9 /* MTErrorLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTErrorLabel.swift; sourceTree = "<group>"; };
+		C529B64E2A4B6FA600493FC9 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		C529B6502A4B6FD500493FC9 /* RegisterViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelProtocols.swift; sourceTree = "<group>"; };
 		C559141F29F1575C0025BB92 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		C5A0C2D029E066DE00DB21DA /* MarvelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +196,15 @@
 				C529B64B2A4AE00200493FC9 /* MTErrorLabel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C529B64D2A4B6F9100493FC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C529B64E2A4B6FA600493FC9 /* RegisterViewModel.swift */,
+				C529B6502A4B6FD500493FC9 /* RegisterViewModelProtocols.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C559142129F16AAD0025BB92 /* Home */ = {
@@ -329,6 +342,7 @@
 		C5B2DB3A29E85C4500A63AE9 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				C529B64D2A4B6F9100493FC9 /* ViewModel */,
 				C5B2DB3C29E85C7300A63AE9 /* RegisterViewController.swift */,
 			);
 			path = Register;
@@ -505,6 +519,7 @@
 				C5B2DB3529E6F54900A63AE9 /* ComicsViewController.swift in Sources */,
 				C5CEBF4129F5499800330A49 /* MTComicCollectionViewCell.swift in Sources */,
 				C5EE0CDE29F1C69B00C203FC /* String-Extension.swift in Sources */,
+				C529B6512A4B6FD500493FC9 /* RegisterViewModelProtocols.swift in Sources */,
 				C529B6382A4856A400493FC9 /* LoginViewModel.swift in Sources */,
 				C5B2DB3D29E85C7300A63AE9 /* RegisterViewController.swift in Sources */,
 				C5CEBF4829F5586B00330A49 /* MTCharacter.swift in Sources */,
@@ -514,6 +529,7 @@
 				C5A0C2D629E066DE00DB21DA /* SceneDelegate.swift in Sources */,
 				C5B2DB0C29E5C2D400A63AE9 /* Coordinator.swift in Sources */,
 				C5CEBF5429F7DE3B00330A49 /* MTPaddingLabel.swift in Sources */,
+				C529B64F2A4B6FA600493FC9 /* RegisterViewModel.swift in Sources */,
 				C5EE0CEE29F2914100C203FC /* Date-Extension.swift in Sources */,
 				C529B6442A4ADDFF00493FC9 /* AuthCoordinatorProtocol.swift in Sources */,
 				C5CEBF5229F7B6B600330A49 /* MTCharacterViewModel.swift in Sources */,

@@ -13,7 +13,7 @@ protocol LoginViewModelProtocol {
     func LoginUIEvents(_ event: LoginUIEvent)
 }
 
-protocol LoginViewModelDelegate {
+protocol LoginViewModelDelegate: AnyObject {
     func LoginViewModelOutputs(_ outputEvent: LoginViewModelOutput)
 }
 

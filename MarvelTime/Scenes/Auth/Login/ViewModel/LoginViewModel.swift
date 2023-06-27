@@ -9,7 +9,7 @@ import Foundation
 
 final class LoginViewModel: LoginViewModelProtocol {
     
-    var delegate: LoginViewModelDelegate?
+    weak var delegate: LoginViewModelDelegate?
     private var username = ""
     private var password = ""
     
