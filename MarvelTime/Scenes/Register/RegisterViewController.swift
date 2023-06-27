@@ -66,10 +66,7 @@ class RegisterViewController: UIViewController {
         password.delegate = self
         repassword.delegate = self
     }
-    
-    deinit {
-        print("LoginViewController deinit")
-    }
+
     
     private func configureUI() {
         configureRegisterStack()
@@ -105,7 +102,6 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     enum Event {
-        case login
         case register
     }
 }
