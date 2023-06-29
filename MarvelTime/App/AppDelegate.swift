@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,22 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 15, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithOpaqueBackground()
-//            navigationBarAppearance.titleTextAttributes = [
-//                NSAttributedString.Key.foregroundColor : UIColor.white
-//            ]
             navigationBarAppearance.backgroundColor = UIColor(named: "DarkGray")
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().compactAppearance = navigationBarAppearance
-           
-//            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
-            
-//            let tabBarApperance = UITabBarAppearance()
-//            tabBarApperance.configureWithOpaqueBackground()
-//            tabBarApperance.backgroundColor = UIColor.blue
-//            UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
-//            UITabBar.appearance().standardAppearance = tabBarApperance
         }
-
+        FirebaseApp.configure()
        
         return true
     }

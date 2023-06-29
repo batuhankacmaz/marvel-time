@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class RegisterViewModel: RegisterViewModelProtocol {
     
@@ -31,9 +32,22 @@ final class RegisterViewModel: RegisterViewModelProtocol {
             notify(.hasError(type: nil))
         case .handleRegister:
             let errorType = findErrorType()
-            guard let guardedErrorType = errorType else { return notify(.success) }
+            guard let guardedErrorType = errorType else { return handleRegister() }
             
             notify(.hasError(type: guardedErrorType))
+        }
+    }
+    
+    private func handleRegister() {
+        Auth.auth().createUser(withEmail: username, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
+            guard let user = authResult?.user, error == nil else {
+                strongSelf.notify(.hasError(type: .registerUsernameError))
+                return
+            }
+            strongSelf.notify(.success)
+            print("\(user.email!) created")
         }
     }
     

@@ -49,7 +49,6 @@ final class MTIconWithTextField: UIView {
         textField.isSecureTextEntry = type == .password || type == .repassword
         configureUI()
         
-        print("initialize")
     }
     
     required init(coder: NSCoder) {
