@@ -243,7 +243,6 @@
 		C5A0C2D229E066DE00DB21DA /* MarvelTime */ = {
 			isa = PBXGroup;
 			children = (
-				C529B6522A4C61F200493FC9 /* GoogleService-Info.plist */,
 				C5EE0CDF29F2748700C203FC /* Manager */,
 				C5F6843E29EDA37500697655 /* Helpers */,
 				C5EE0CE229F279F600C203FC /* Resources */,
@@ -253,6 +252,7 @@
 				C5A0C2DC29E066DE00DB21DA /* Assets.xcassets */,
 				C5A0C2DE29E066DE00DB21DA /* LaunchScreen.storyboard */,
 				C5A0C2E129E066DE00DB21DA /* Info.plist */,
+				C529B6522A4C61F200493FC9 /* GoogleService-Info.plist */,
 			);
 			path = MarvelTime;
 			sourceTree = "<group>";

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 final class LoginViewModel: LoginViewModelProtocol {
     
@@ -26,12 +27,21 @@ final class LoginViewModel: LoginViewModelProtocol {
             notify(.loginButtonActive(isActive: isActive))
             notify(.hasError(error: false))
         case .handleLogin:
-            let successLogin = username.count > 2 && password.count > 2
-            if successLogin {
-                notify(.success)
-            } else {
-                notify(.hasError(error: true))
+            handleLogin()
+        }
+    }
+    
+    private func handleLogin() {
+        Auth.auth().signIn(withEmail: username, password: password) {
+            [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
+            guard let user = authResult?.user, error == nil else {
+                strongSelf.notify(.hasError(error: true))
+                return
             }
+            strongSelf.notify(.success)
+            print("\(user.email!) opened")
         }
     }
     

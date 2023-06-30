@@ -200,7 +200,6 @@ extension LoginViewController: LoginViewModelDelegate {
         case .hasError(let error):
             errorLabel.layer.opacity = error ? 1.0 : 0
         case .loginButtonActive(let isActive):
-            print("isActive", isActive)
             isLoginButtonActive = isActive
         }
     }
