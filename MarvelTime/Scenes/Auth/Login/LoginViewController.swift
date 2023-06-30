@@ -100,6 +100,16 @@ class LoginViewController: UIViewController {
         animatedAppear()
         userName.delegate = self
         password.delegate = self
+        let user = User(title: "foo", body: "bar", userId: 1)
+        NetworkManager.shared.postJsonObject(body: user) { result in
+            switch result {
+            case .success(let user):
+                print("user", user.title)
+                print("userID", user.userId)
+            default:
+                print("error occured")
+            }
+        }
     }
     
     private func configureUI() {
