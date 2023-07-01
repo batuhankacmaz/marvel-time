@@ -13,17 +13,22 @@ final class NetworkManager {
     
     private init() {}
     
-    private func formRequest(url: String,
+    func formRequest(url: String,
                              data: (any Codable)? = nil,
-                             method: HTTPMethod = .get) -> URLRequest? {
-        guard let url = URL(string: url) else { return nil}
+                             method: HTTPMethod = .get, isRequireKey: Bool = true ) -> URLRequest? {
+        var baseURL = url
+        if isRequireKey {
+            baseURL = KeyManager.shared.addKey(url: url)
+        }
+        guard let url = URL(string: baseURL) else { return nil}
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         if let body = data {
             let requestBody = try! JSONEncoder().encode(body)
             request.httpBody = requestBody
-            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            
         }
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
         
         return request
     }
