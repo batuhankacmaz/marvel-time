@@ -7,12 +7,14 @@
 
 import Foundation
 
-struct MTData: Codable {
-    let data: Subdata
+typealias Characters = [MTCharacter]
+
+struct MTData<T: Codable>: Codable {
+    let data: Subdata<T>
 }
 
-struct Subdata: Codable {
-    let results: [MTCharacter]
+struct Subdata<T: Codable>: Codable {
+    let results: [T]
 }
 
 struct MTCharacter: Codable {

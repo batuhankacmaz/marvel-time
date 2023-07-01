@@ -114,28 +114,31 @@ extension HomeViewController: UITableViewDataSource {
         case Sections.YourNewIssues.rawValue:
             APICaller.shared.getCharacters(name: "spider-man") { result in
                 switch result {
-                case .success(let characters):
+                case .success(let results):
+                    let characters = results.data.results
                     cell.configure(with: characters)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                default:
+                    print("error occured")
                 }
             }
         case Sections.Previews.rawValue:
             APICaller.shared.getCharacters(name: "wolverine") { result in
                 switch result {
-                case .success(let characters):
+                case .success(let results):
+                    let characters = results.data.results
                     cell.configure(with: characters)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                default:
+                    print("error occured")
                 }
             }
         case Sections.BasedOnYourPreferences.rawValue:
             APICaller.shared.getCharacters(name: "iron") { result in
                 switch result {
-                case .success(let characters):
+                case .success(let results):
+                    let characters = results.data.results 
                     cell.configure(with: characters)
-                case .failure(let error):
-                    print(error.localizedDescription)
+                default:
+                    print("error occured")
                 }
             }
         default:

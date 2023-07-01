@@ -31,6 +31,7 @@
 		C529B66A2A4F25F700493FC9 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B6692A4F25F700493FC9 /* ErrorResponse.swift */; };
 		C529B66C2A4F27E700493FC9 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B66B2A4F27E700493FC9 /* Errors.swift */; };
 		C529B66E2A4F30FD00493FC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B66D2A4F30FD00493FC9 /* User.swift */; };
+		C529B6702A4F5D2E00493FC9 /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C529B66F2A4F5D2E00493FC9 /* KeyManager.swift */; };
 		C559142029F1575C0025BB92 /* UIImage-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559141F29F1575C0025BB92 /* UIImage-Extension.swift */; };
 		C559142329F17B750025BB92 /* MTCollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */; };
 		C5A0C2D429E066DE00DB21DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A0C2D329E066DE00DB21DA /* AppDelegate.swift */; };
@@ -95,6 +96,7 @@
 		C529B6692A4F25F700493FC9 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		C529B66B2A4F27E700493FC9 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C529B66D2A4F30FD00493FC9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C529B66F2A4F5D2E00493FC9 /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
 		C559141F29F1575C0025BB92 /* UIImage-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Extension.swift"; sourceTree = "<group>"; };
 		C559142229F17B750025BB92 /* MTCollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTCollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		C5A0C2D029E066DE00DB21DA /* MarvelTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 			children = (
 				C529B6672A4ECDBD00493FC9 /* NetworkManager.swift */,
 				C529B66D2A4F30FD00493FC9 /* User.swift */,
+				C529B66F2A4F5D2E00493FC9 /* KeyManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C529B6642A4ECC9300493FC9 /* Result.swift in Sources */,
+				C529B6702A4F5D2E00493FC9 /* KeyManager.swift in Sources */,
 				C5B2DB3929E6F56500A63AE9 /* HomeCoordinator.swift in Sources */,
 				C5BD30062A3F979300C1439A /* Protocols.swift in Sources */,
 				C529B6662A4ECCDA00493FC9 /* HTTPMethod.swift in Sources */,
