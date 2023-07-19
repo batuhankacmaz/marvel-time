@@ -25,7 +25,7 @@ class AppCoordinator: AppCoordinatorProtocol {
     }
     
     func start() {
-        showLoginFlow()
+        showMainFlow()
     }
     
     func showLoginFlow() {

@@ -9,10 +9,19 @@ import Foundation
 
 protocol HomeViewModelProtocol {
     var delegate: HomeViewModelDelegate? { get set }
+    
+    func HomeUIEvents(_ event: HomeUIEvent)
 }
 
 protocol HomeViewModelDelegate: AnyObject {
     func handleVMOutput(_ event: HomeViewModelOutput)
+}
+
+enum HomeUIEvent {
+    case fetchAll
+    case yourNewIssues
+    case previews
+    case basedOnYourPreferences
 }
 
 enum HomeViewModelOutput {
